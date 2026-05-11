@@ -141,6 +141,163 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora','Noto Serif Thai
   display:flex;justify-content:center;align-items:flex-end;
   gap:3rem;flex-wrap:wrap;
 }
+
+
+/* CONTACT CTA BUTTON */
+.hero-cta{
+  margin-top:2.2rem;
+  opacity:0;
+  animation:fu 1s ease 1.55s forwards;
+}
+.cta-link{
+  display:inline-block;
+  border:1px solid rgba(109,178,133,0.55);
+  color:var(--cream);
+  text-decoration:none;
+  font-size:0.62rem;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  padding:0.72rem 1.35rem;
+  background:rgba(12,30,17,0.35);
+  transition:all 0.35s ease;
+}
+.cta-link:hover{
+  background:rgba(109,178,133,0.12);
+  border-color:var(--green-l);
+  transform:translateY(-2px);
+}
+
+/* CONTACT SECTION */
+.contact-section{
+  position:relative;
+  overflow:hidden;
+  padding:7rem 2.5rem;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 45%,#102817 0%,var(--bg) 72%);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.contact-section::before{
+  content:'';
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:44%;
+  opacity:0.12;
+  background:
+    repeating-linear-gradient(135deg,rgba(109,178,133,0.35) 0 8px,transparent 8px 18px),
+    repeating-linear-gradient(45deg,rgba(109,178,133,0.22) 0 8px,transparent 8px 18px);
+  pointer-events:none;
+}
+.contact-wrap{
+  position:relative;
+  z-index:1;
+  max-width:980px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:0.9fr 1.1fr;
+  gap:4rem;
+  align-items:center;
+}
+.contact-kicker{
+  font-size:0.6rem;
+  letter-spacing:0.45em;
+  text-transform:uppercase;
+  color:var(--green-l);
+  margin-bottom:1.5rem;
+}
+.contact-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,6vw,4.8rem);
+  font-style:italic;
+  font-weight:300;
+  line-height:1.05;
+  color:var(--cream);
+  margin-bottom:1.4rem;
+}
+.contact-title em{color:var(--gold)}
+.contact-intro{
+  color:#9ABFA2;
+  font-size:0.98rem;
+  line-height:1.95;
+  max-width:430px;
+}
+.contact-card{
+  background:rgba(12,30,17,0.7);
+  border:1px solid var(--border);
+  padding:3rem 2.6rem;
+  box-shadow:0 24px 80px rgba(0,0,0,0.22);
+}
+.contact-logo-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3.3rem;
+  font-weight:600;
+  line-height:0.9;
+  color:rgba(212,232,204,0.82);
+  margin-bottom:0.25rem;
+}
+.contact-logo-sub{
+  font-size:0.58rem;
+  letter-spacing:0.42em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:2.2rem;
+}
+.contact-company{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.45rem;
+  color:var(--cream);
+  line-height:1.35;
+  margin-bottom:1.7rem;
+}
+.contact-person{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:1.25rem 0;
+  margin:1.6rem 0;
+}
+.contact-name{
+  font-size:1.1rem;
+  color:var(--cream);
+  margin-bottom:0.2rem;
+}
+.contact-role{
+  color:var(--muted);
+  font-size:0.86rem;
+  font-style:italic;
+}
+.contact-list{
+  display:grid;
+  gap:0.75rem;
+  margin-top:1.6rem;
+}
+.contact-item{
+  color:#9ABFA2;
+  font-size:0.95rem;
+  line-height:1.55;
+}
+.contact-item span{
+  display:block;
+  font-size:0.56rem;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--green-l);
+  margin-bottom:0.1rem;
+}
+.contact-item a{
+  color:var(--cream);
+  text-decoration:none;
+  border-bottom:1px solid rgba(109,178,133,0.35);
+}
+.contact-item a:hover{color:var(--green-l)}
+.contact-address{color:var(--muted)}
+
+@media(max-width:760px){
+  .contact-section{padding:5.5rem 1.5rem}
+  .contact-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .contact-card{padding:2.3rem 1.6rem}
+  .contact-logo-text{font-size:2.7rem}
+}
+
 </style>
 </head>
 <body>
@@ -173,6 +330,9 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora','Noto Serif Thai
   <h1 class="hero-title">อิแม</h1>
   <div class="hero-rule"></div>
   <p class="hero-sub">A Journey of Remembrance</p>
+  <div class="hero-cta">
+    <a class="cta-link" href="#contact">Contact &amp; Collaboration</a>
+  </div>
   <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
 </section>
 
@@ -270,6 +430,65 @@ body{background:var(--bg);color:var(--cream);font-family:'Lora','Noto Serif Thai
   <div class="pq">"The wisdom of our ancestors, turned into a model for the future."</div>
 </section>
 </div>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section reveal">
+  <div class="contact-wrap">
+
+    <div>
+      <div class="contact-kicker">Contact</div>
+      <h2 class="contact-title">
+        For Partnership<br>
+        &amp; <em>Research Collaboration</em>
+      </h2>
+      <p class="contact-intro">
+        For research collaboration, product development, heritage ingredient studies,
+        IP-related opportunities, or partnership inquiries, please contact Imae Innovation.
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-logo-text">imae</div>
+      <div class="contact-logo-sub">ancestral heritage</div>
+
+      <div class="contact-company">
+        Imae Innovation (Thailand)<br>
+        Company Limited
+      </div>
+
+      <div class="contact-person">
+        <div class="contact-name">Chutamas Nabamroong (Nan)</div>
+        <div class="contact-role">Founder &amp; Chief Executive Officer (CEO)</div>
+      </div>
+
+      <div class="contact-list">
+        <div class="contact-item">
+          <span>Email</span>
+          <a href="mailto:imaeinnovation@gmail.com">imaeinnovation@gmail.com</a>
+        </div>
+
+        <div class="contact-item">
+          <span>Tel</span>
+          <a href="tel:+66941659495">+66 94 165 9495</a>
+        </div>
+
+        <div class="contact-item">
+          <span>LINE</span>
+          nanbom
+        </div>
+
+        <div class="contact-item contact-address">
+          <span>Address</span>
+          191/216 Moo 17, Ban Ped Subdistrict,<br>
+          Mueang Khon Kaen District,<br>
+          Khon Kaen 40000, Thailand
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- CLOSING -->
 <section class="closing reveal">
