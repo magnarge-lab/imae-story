@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niamhom Leaf — Isan Heritage Ingredient | Imae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Lora:ital,wght@0,400;1,400&family=Noto+Serif+Thai:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06120A;--cream:#D4E8CC;--soft:#9ABFA2;--green:#3A7A52;
+  --green-l:#6DB285;--gold:#C8963A;--muted:#66856E;--border:#1C3424;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--cream);
+  font-family:'Lora','Noto Serif Thai',Georgia,serif;
+  font-size:17px;line-height:1.9;overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%,rgba(58,122,82,.18),transparent 72%),
+    repeating-linear-gradient(135deg,rgba(109,178,133,.035) 0 7px,transparent 7px 18px),
+    repeating-linear-gradient(45deg,rgba(109,178,133,.025) 0 7px,transparent 7px 18px);
+  pointer-events:none;z-index:0;
+}
+.isan{
+  height:12px;
+  background:repeating-linear-gradient(135deg,rgba(58,122,82,0.2) 0 7px,transparent 7px 14px),
+  repeating-linear-gradient(45deg,rgba(58,122,82,0.2) 0 7px,transparent 7px 14px)
+}
+.nav{
+  position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);
+  background:rgba(6,18,10,.76);border-bottom:1px solid rgba(212,232,204,.08);
+}
+.nav-inner{
+  max-width:1080px;margin:0 auto;padding:.9rem 1.5rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+.brand{
+  font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-weight:600;
+  color:var(--cream);text-decoration:none;line-height:1;
+}
+.nav-links{display:flex;gap:1rem;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{
+  color:var(--muted);text-decoration:none;font-size:.58rem;
+  letter-spacing:.22em;text-transform:uppercase;transition:.25s;
+}
+.nav-links a:hover{color:var(--green-l)}
+.hero{
+  position:relative;z-index:1;min-height:86vh;display:flex;align-items:center;
+  padding:7rem 2rem 5rem;overflow:hidden;
+}
+.hero::after{
+  content:'';position:absolute;right:-10vmin;top:12%;width:54vmin;height:74vmin;
+  border-radius:48% 52% 44% 56%;
+  background:radial-gradient(ellipse at center,rgba(109,178,133,.18),transparent 70%);
+  transform:rotate(-12deg);pointer-events:none;
+}
+.hero-wrap{
+  width:100%;max-width:1080px;margin:0 auto;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center;
+}
+.kicker{
+  font-size:.62rem;letter-spacing:.46em;text-transform:uppercase;
+  color:var(--green-l);margin-bottom:1.4rem;
+}
+h1{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,10vw,8.5rem);
+  font-style:italic;font-weight:300;line-height:.92;color:var(--cream);margin-bottom:1.2rem;
+}
+h1 em,h2 em{color:var(--gold)}
+.hero-sub{max-width:620px;color:var(--soft);font-size:1.05rem;line-height:2}
+.hero-thai{
+  margin-top:1.1rem;font-family:'Noto Serif Thai',serif;color:#b6d1bd;
+  font-size:.98rem;line-height:1.9;
+}
+.hero-card{
+  position:relative;background:linear-gradient(180deg,rgba(16,36,22,.92),rgba(8,20,12,.82));
+  border:1px solid var(--border);padding:2.6rem;box-shadow:0 26px 90px rgba(0,0,0,.28);
+}
+.leaf-mark{
+  width:100%;aspect-ratio:1/1.05;border:1px solid rgba(109,178,133,.18);
+  background:radial-gradient(ellipse 55% 38% at 50% 42%,rgba(109,178,133,.22),transparent 72%),
+  linear-gradient(145deg,rgba(200,150,58,.06),transparent 58%);
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+}
+.leaf-shape{
+  width:50%;height:72%;border-radius:55% 45% 52% 48% / 62% 62% 38% 38%;
+  background:linear-gradient(160deg,rgba(109,178,133,.95),rgba(36,88,54,.92));
+  transform:rotate(-14deg);box-shadow:0 20px 70px rgba(0,0,0,.28);position:relative;
+}
+.leaf-shape::after{
+  content:'';position:absolute;left:50%;top:9%;bottom:8%;width:1px;
+  background:rgba(212,232,204,.38);transform:translateX(-50%) rotate(8deg);
+}
+.card-note{margin-top:1.4rem;color:var(--muted);font-style:italic;font-size:.92rem}
+.main{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:0 2rem 6rem}
+.section{padding:5.2rem 0;border-top:1px solid var(--border)}
+.section:first-child{border-top:0}
+.sec-label{
+  font-size:.6rem;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--green-l);margin-bottom:1.2rem;
+}
+h2{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5.5vw,4rem);
+  font-style:italic;font-weight:300;line-height:1.12;color:var(--cream);margin-bottom:1.4rem;
+}
+.body{color:var(--soft);font-size:1rem;line-height:2;margin-bottom:1.2rem}
+.body strong{color:var(--cream);font-weight:400}
+.quote{
+  border-left:2px solid var(--green);padding:1rem 0 1rem 1.8rem;margin:2rem 0;
+  font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-style:italic;
+  line-height:1.55;color:var(--green-l);
+}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.info-card{background:rgba(12,30,17,.72);border:1px solid var(--border);padding:1.6rem}
+.info-card h3{
+  font-family:'Cormorant Garamond',serif;font-size:1.55rem;font-style:italic;
+  font-weight:300;color:var(--cream);margin-bottom:.65rem;
+}
+.info-card p{color:var(--muted);font-size:.9rem;line-height:1.8}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;margin-top:2rem}
+.step{background:rgba(12,30,17,.68);border:1px solid var(--border);padding:1.35rem 1rem}
+.step-no{font-family:'Cormorant Garamond',serif;font-size:2rem;color:rgba(109,178,133,.38);line-height:1;margin-bottom:.6rem}
+.step-title{color:var(--cream);font-size:.88rem;margin-bottom:.35rem}
+.step p{color:var(--muted);font-size:.78rem;line-height:1.65}
+.cta{
+  position:relative;z-index:1;padding:6rem 2rem;text-align:center;
+  background:radial-gradient(ellipse 70% 50% at 50% 50%,#102817 0%,var(--bg) 74%);
+  border-top:1px solid var(--border);
+}
+.cta h2{margin-bottom:1rem}
+.cta p{max-width:620px;margin:0 auto 2rem;color:var(--soft);line-height:1.9}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.85rem}
+.btn{
+  display:inline-block;color:var(--cream);border:1px solid rgba(109,178,133,.5);
+  text-decoration:none;padding:.78rem 1.25rem;font-size:.58rem;letter-spacing:.24em;
+  text-transform:uppercase;transition:.25s;
+}
+.btn:hover{border-color:var(--green-l);background:rgba(109,178,133,.10);transform:translateY(-2px)}
+.btn.gold{border-color:rgba(200,150,58,.58);color:#edd8a0}
+.footer{
+  position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:2rem;
+  display:flex;justify-content:space-between;gap:1rem;color:var(--muted);
+  font-size:.78rem;border-top:1px solid var(--border);
+}
+@media(max-width:800px){
+  .hero{min-height:auto;padding:5rem 1.5rem 4rem}
+  .hero-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .hero-card{padding:1.6rem}
+  .main{padding:0 1.5rem 5rem}
+  .grid,.steps{grid-template-columns:1fr}
+  .nav-inner{align-items:flex-start;flex-direction:column}
+  .footer{flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="isan"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">imae</a>
+    <div class="nav-links">
+      <a href="index.html">Story</a>
+      <a href="imae-os.html">Imae OS</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="kicker">Heritage Ingredient</div>
+      <h1>Niamhom<br><em>Leaf</em></h1>
+      <p class="hero-sub">
+        Before Niamhom became an ingredient, it was a living memory — an aromatic leaf remembered through Isan households,
+        ancestral care, and the quiet intelligence of local ways of life.
+      </p>
+      <p class="hero-thai">
+        ใบเนียมหอมไม่ใช่เพียงวัตถุดิบกลิ่นหอม แต่คือความทรงจำของภูมิปัญญาท้องถิ่นอีสาน
+        ที่สืบทอดผ่านการใช้จริงในครัวเรือน การดูแลร่างกาย บ้าน และวิถีชีวิตประจำวัน
+      </p>
+    </div>
+
+    <div class="hero-card">
+      <div class="leaf-mark"><div class="leaf-shape"></div></div>
+      <p class="card-note">
+        A heritage ingredient is not valuable because it is rare alone. It is valuable because people remembered how to live with it.
+      </p>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <section class="section">
+    <div class="sec-label">01 — Living Traditional Knowledge</div>
+    <h2>ภูมิปัญญาที่อยู่ในชีวิตจริง</h2>
+    <p class="body">
+      In Isan, plant knowledge has often lived outside written records. It was carried in ordinary acts:
+      the way elders selected leaves by scent, the way aromatic plants were kept close to the body and the home,
+      and the way care was practiced through simple, repeatable routines.
+    </p>
+    <p class="body">
+      <strong>Niamhom</strong> belongs to this kind of knowledge. Its value is not only botanical.
+      It is cultural, sensory, and relational — a leaf remembered through use, touch, scent, and family memory.
+    </p>
+    <div class="quote">
+      “Some knowledge is not preserved in books first. It is preserved in hands, homes, and repeated care.”
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-label">02 — Why Isan Matters</div>
+    <h2>The Isan context</h2>
+    <p class="body">
+      The northeastern region of Thailand has long developed its own relationship with plants, scent, food, craft,
+      and household care. Local aromatic plants were part of a practical intelligence shaped by climate,
+      availability, seasonal rhythm, and community memory.
+    </p>
+    <p class="body">
+      For Imae, the story of Niamhom is therefore not presented as a generic herb story.
+      It is approached as a regional heritage narrative: a plant connected to place, language, use,
+      and the lived knowledge of people who kept it meaningful.
+    </p>
+
+    <div class="grid">
+      <div class="info-card"><h3>Place</h3><p>Connected to Isan landscape, household life, and local memory.</p></div>
+      <div class="info-card"><h3>Practice</h3><p>Remembered through repeated use, scent recognition, and care rituals.</p></div>
+      <div class="info-card"><h3>People</h3><p>Carried by elders, families, growers, and community-based knowledge holders.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-label">03 — From Oral Memory to Documentation</div>
+    <h2>จากเรื่องเล่าสู่การคุ้มครองมรดกท้องถิ่น</h2>
+    <p class="body">
+      Traditional knowledge can disappear when it is treated as too ordinary to document.
+      Imae’s work is to help turn living memory into a clearer heritage record — without taking it away from the community that gave it meaning.
+    </p>
+    <p class="body">
+      This means documenting the local name, context of use, cultivation knowledge, sensory profile,
+      and community relationship around Niamhom, while avoiding exaggerated claims or medical promises.
+      The goal is cultural clarity, responsible development, and benefit that can return to local people.
+    </p>
+
+    <div class="steps">
+      <div class="step"><div class="step-no">01</div><div class="step-title">Listen</div><p>Collect local memory, family stories, and use context.</p></div>
+      <div class="step"><div class="step-no">02</div><div class="step-title">Observe</div><p>Record plant features, aroma, growing conditions, and handling.</p></div>
+      <div class="step"><div class="step-no">03</div><div class="step-title">Cultivate</div><p>Study growing methods with community partners.</p></div>
+      <div class="step"><div class="step-no">04</div><div class="step-title">Develop</div><p>Transform the ingredient into responsible product concepts.</p></div>
+      <div class="step"><div class="step-no">05</div><div class="step-title">Protect</div><p>Build a heritage narrative that respects origin and community value.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-label">04 — Imae’s Position</div>
+    <h2>Heritage innovation,<br><em>not extraction</em></h2>
+    <p class="body">
+      Imae does not see Niamhom as a trend ingredient to be taken, renamed, and commercialized without context.
+      We see it as a bridge between ancestral care and contemporary product development.
+    </p>
+    <p class="body">
+      Our responsibility is to preserve the story, study the plant with care, develop it with integrity,
+      and make sure the meaning of the ingredient remains connected to the people and place it came from.
+    </p>
+    <div class="quote">
+      “The future of heritage is not only to remember the past, but to design systems that allow the past to nourish the future.”
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="sec-label">05 — Important Note</div>
+    <h2>Cultural context,<br><em>not medical claim</em></h2>
+    <p class="body">
+      This page presents Niamhom as a heritage and cultural ingredient.
+      It is not intended to diagnose, treat, cure, or prevent disease.
+      Any future product development should follow appropriate safety, cosmetic, regulatory, and research standards.
+    </p>
+  </section>
+</main>
+
+<section class="cta">
+  <h2>From Isan memory<br>to responsible innovation.</h2>
+  <p>
+    For heritage ingredient studies, cultivation collaboration, product development, or strategic partnership,
+    contact Imae Innovation.
+  </p>
+  <div class="actions">
+    <a class="btn gold" href="index.html#contact">Contact & Collaboration</a>
+    <a class="btn" href="imae-os.html">Explore Imae OS</a>
+    <a class="btn" href="index.html">Back to Imae Story</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div>© Imae Innovation (Thailand) Company Limited</div>
+  <div>Niamhom Leaf · Isan Heritage Ingredient</div>
+</footer>
+
+<div class="isan"></div>
+</body>
+</html>
