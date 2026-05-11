@@ -33,17 +33,6 @@ body{
   overflow-x:hidden;
 }
 
-/* ─── ANIMATION BASE ────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.reveal.on {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ─── HERO ─────────────────────────────── */
 .hero{
   min-height:100vh;
@@ -55,78 +44,351 @@ body{
 }
 .isan-pattern{
   position:absolute;top:0;left:0;right:0;height:60px;
-  background-image:repeating-linear-gradient(135deg,rgba(58,122,82,0.08) 0px,rgba(58,122,82,0.08) 8px,transparent 8px,transparent 16px),
-  repeating-linear-gradient(45deg,rgba(58,122,82,0.08) 0px,rgba(58,122,82,0.08) 8px,transparent 8px,transparent 16px);
+  background-image:repeating-linear-gradient(
+    135deg,
+    rgba(58,122,82,0.08) 0px,
+    rgba(58,122,82,0.08) 8px,
+    transparent 8px,
+    transparent 16px
+  ),
+  repeating-linear-gradient(
+    45deg,
+    rgba(58,122,82,0.08) 0px,
+    rgba(58,122,82,0.08) 8px,
+    transparent 8px,
+    transparent 16px
+  );
 }
 .deco{position:absolute;pointer-events:none;user-select:none}
 .deco-leaf-bg{top:-5%;right:-3%;width:55vmin;opacity:0.06;transform:rotate(20deg)}
+.deco-leaf-bg2{bottom:5%;left:-4%;width:40vmin;opacity:0.05;transform:rotate(-30deg) scaleX(-1)}
+.deco-sachet{bottom:12%;right:6%;width:90px;opacity:0.18}
+.deco-soap{top:18%;left:5%;width:100px;opacity:0.15}
+.hero-logo{
+  margin-bottom:1.8rem;
+  opacity:0;animation:fu 1s ease 0.3s forwards;
+}
 .hero-logo svg{width:64px;height:auto}
+.hero-eyebrow{
+  font-family:'Lora',serif;
+  font-size:0.65rem;letter-spacing:0.5em;
+  text-transform:uppercase;color:var(--green-l);
+  margin-bottom:1.2rem;
+  opacity:0;animation:fu 1s ease 0.5s forwards;
+}
 .hero-title{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(5rem,17vw,12rem);
   font-weight:300;font-style:italic;
   line-height:0.88;color:var(--cream);
   letter-spacing:-0.01em;
+  opacity:0;animation:fu 1.3s ease 0.7s forwards;
+}
+.hero-rule{
+  width:60px;height:1px;
+  background:linear-gradient(to right,transparent,var(--green-l),transparent);
+  margin:1.8rem auto;
+  opacity:0;animation:fu 1s ease 1s forwards;
+}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.2vw,1.3rem);
+  font-style:italic;font-weight:300;
+  color:var(--muted);letter-spacing:0.06em;
+  opacity:0;animation:fu 1s ease 1.2s forwards;
+}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;
+  color:var(--muted);
+  opacity:0;animation:fu 1s ease 1.6s forwards;
+  display:flex;flex-direction:column;align-items:center;gap:0.8rem;
+}
+.scroll-line{
+  width:1px;height:38px;
+  background:linear-gradient(to bottom,var(--green-l),transparent);
+  animation:pulse 2.2s ease-in-out 2s infinite;
 }
 
 /* ─── STORY ─────────────────────────────── */
 .story{max-width:680px;margin:0 auto;padding:0 2.5rem}
-.chapter{padding:6rem 0 2rem}
+.chapter{
+  padding:6rem 0 2rem;
+  opacity:0;transform:translateY(36px);
+  transition:opacity 0.85s ease,transform 0.85s ease;
+}
+.chapter.on{opacity:1;transform:translateY(0)}
+.ch-num{
+  font-size:0.6rem;letter-spacing:0.5em;
+  text-transform:uppercase;color:var(--green-l);
+  margin-bottom:0.9rem;
+}
 .ch-title{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(2rem,5vw,2.9rem);
   font-weight:400;font-style:italic;
+  color:var(--cream);line-height:1.15;
+}
+.ch-thai{
+  font-family:'Noto Serif Thai',serif;
+  font-size:0.6em;font-style:normal;font-weight:300;
+  color:var(--muted);display:block;
+  margin-top:0.25rem;margin-bottom:1.8rem;letter-spacing:0.04em;
 }
 .body{color:#A8C8A0;font-size:1rem;line-height:1.95;margin-bottom:1.4rem}
+.body strong,.body em{color:var(--cream)}
+.body em{font-style:italic}
 
-/* ─── SAFE SPACE EXPERIENCE (NEW) ────────── */
-.safe-space-section {
-  padding: 10rem 2.5rem;
-  background: linear-gradient(to bottom, var(--bg), var(--bg2), var(--bg));
-  text-align: center;
-  position: relative;
+/* ─── PULL QUOTE ─────────────────────────── */
+.pq{
+  border-left:2px solid var(--green);
+  padding:1rem 0 1rem 2rem;
+  margin:2.5rem 0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-style:italic;font-weight:300;
+  color:var(--green-l);line-height:1.55;
 }
-.experience-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
-  max-width: 1000px;
-  margin: 4rem auto 0;
+
+/* ─── DIVIDER ────────────────────────────── */
+.div{
+  display:flex;align-items:center;gap:1rem;padding:0.5rem 0;margin:1rem 0;
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
 }
-.exp-card {
-  padding: 3rem 2rem;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid var(--border);
-  transition: all 0.5s ease;
+.div.on{opacity:1;transform:translateY(0)}
+.div::before,.div::after{content:'';flex:1;height:1px;background:var(--border)}
+.div span{font-size:0.5rem;color:var(--dim)}
+
+/* ─── SCENT MOMENT ───────────────────────── */
+.scent{
+  background:radial-gradient(ellipse at center,#142E1C 0%,var(--bg2) 65%);
+  border:1px solid var(--border);
+  padding:4rem 3rem;margin:4rem -2rem;
+  text-align:center;position:relative;overflow:hidden;
+  opacity:0;transform:translateY(36px);
+  transition:opacity 0.9s ease,transform 0.9s ease;
 }
-.exp-card:hover {
-  background: rgba(109,178,133,0.05);
-  border-color: var(--green);
+.scent.on{opacity:1;transform:translateY(0)}
+.scent-deco{
+  position:absolute;right:5%;top:50%;transform:translateY(-50%);
+  opacity:0.18;
 }
-.exp-icon { font-size: 2rem; color: var(--gold); margin-bottom: 1.5rem; display: block; }
-.exp-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; margin-bottom: 1rem; color: var(--cream); }
-.exp-desc { font-size: 0.95rem; color: var(--muted); font-style: italic; }
+.scent-deco-l{
+  position:absolute;left:5%;top:50%;transform:translateY(-50%) scaleX(-1);
+  opacity:0.15;
+}
+.scent-label{
+  font-size:0.6rem;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--green-l);margin-bottom:2rem;
+}
+.scent-txt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.4rem,3.5vw,1.9rem);
+  font-style:italic;font-weight:300;
+  color:var(--cream);line-height:1.55;
+}
+.scent-sub{color:var(--muted);font-size:0.92rem;margin-top:0.8rem;font-style:italic}
+.scent-name{
+  font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;
+  color:var(--green-l);margin-top:1.8rem;
+}
+
+/* ─── SAFE SPACE EXPERIENCE ──────────────── */
+.safe-space{
+  padding:8rem 2.5rem;
+  background:linear-gradient(to bottom, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%);
+  text-align:center;
+  opacity:0;transform:translateY(36px);
+  transition:opacity 0.9s ease,transform 0.9s ease;
+}
+.safe-space.on{opacity:1;transform:translateY(0)}
+.ss-label{
+  font-size:0.6rem;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--green-l);margin-bottom:1.5rem;
+}
+.ss-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.5rem,6vw,4rem);
+  font-style:italic;font-weight:300;
+  color:var(--cream);line-height:1.15;margin-bottom:2rem;
+}
+.ss-body{
+  color:var(--muted);font-size:1rem;line-height:1.9;
+  max-width:600px;margin:0 auto 4rem auto;font-style:italic;
+}
+.ss-grid{
+  display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;
+  max-width:900px;margin:0 auto;
+}
+.ss-card{
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--border);
+  padding:3rem 2rem;
+  flex:1;min-width:260px;
+  transition:border-color 0.4s ease, background 0.4s ease;
+}
+.ss-card:hover{
+  border-color:var(--green);
+  background:rgba(58,122,82,0.05);
+}
+.ss-icon{
+  font-size:2rem;color:var(--gold);margin-bottom:1.5rem;
+}
+.ss-card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;color:var(--cream);margin-bottom:1rem;font-style:italic;
+}
+.ss-card-desc{
+  color:var(--muted);font-size:0.9rem;line-height:1.7;
+}
+
+/* ─── PROMISE ────────────────────────────── */
+.promise{
+  background:var(--bg2);border:1px solid var(--border);
+  padding:3rem 2.5rem;margin:2.5rem 0;
+  text-align:center;position:relative;
+}
+.promise::before{
+  content:'\201C';
+  position:absolute;top:-1.5rem;left:50%;transform:translateX(-50%);
+  font-family:'Cormorant Garamond',serif;
+  font-size:6rem;color:var(--green);line-height:1;opacity:0.2;
+}
+.promise-txt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.3rem,3vw,1.65rem);
+  font-style:italic;font-weight:300;
+  color:var(--cream);line-height:1.65;
+}
+
+/* ─── MISSION ────────────────────────────── */
+.mission{
+  min-height:72vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:6rem 2.5rem;
+  background:radial-gradient(ellipse 80% 60% at 50% 50%,#0E2818 0%,var(--bg) 70%);
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(36px);
+  transition:opacity 0.9s ease,transform 0.9s ease;
+}
+.mission.on{opacity:1;transform:translateY(0)}
+.mission-leaf-l{
+  position:absolute;left:-3%;bottom:-5%;
+  width:200px;opacity:0.08;transform:rotate(15deg);
+}
+.mission-leaf-r{
+  position:absolute;right:-3%;top:-5%;
+  width:180px;opacity:0.08;transform:rotate(-20deg) scaleX(-1);
+}
+.mission-eye{
+  font-size:0.6rem;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--green-l);margin-bottom:2rem;
+}
+.mission-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,8vw,5.5rem);
+  font-style:italic;font-weight:300;
+  color:var(--cream);line-height:1.15;margin-bottom:1.5rem;
+}
+.mission-title em{color:var(--gold);font-style:italic}
+.mission-body{
+  color:var(--muted);font-size:0.96rem;
+  max-width:460px;line-height:1.9;font-style:italic;
+}
+.mission-body em{color:var(--cream)}
+.senses{
+  display:flex;gap:1.2rem;flex-wrap:wrap;
+  justify-content:center;margin-top:2.8rem;
+}
+.sense{
+  font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--border);padding:0.4rem 1rem;
+}
 
 /* ─── PRODUCTS STRIP (PARALLAX ENHANCED) ─── */
 .products-strip{
   background:var(--bg2);border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
-  padding:6rem 2.5rem;text-align:center;
+  padding:5rem 2.5rem;text-align:center;
+  overflow:hidden;
+}
+.products-strip-label{
+  font-size:0.6rem;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--green-l);margin-bottom:3rem;
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.8s ease,transform 0.8s ease;
+}
+.products-strip.on .products-strip-label{
+  opacity:1;transform:translateY(0);
 }
 .products-row{
   display:flex;justify-content:center;align-items:flex-end;
   gap:4rem;flex-wrap:wrap;
 }
-.product-item {
-  transition: transform 0.8s ease-out;
+
+/* Animation Classes for Parallax Effect */
+.product-item{
+  text-align:center;
+  opacity:0;
+  transform:translateY(60px);
+  transition:opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.products-strip.on .product-item.delay-1 { opacity:1; transform:translateY(0); transition-delay:0.1s; }
+.products-strip.on .product-item.delay-2 { opacity:1; transform:translateY(0); transition-delay:0.3s; }
+.products-strip.on .product-item.delay-3 { opacity:1; transform:translateY(0); transition-delay:0.5s; }
+
+/* Gentle floating animation after reveal */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.products-strip.on .product-item svg {
+  animation: float 4s ease-in-out infinite;
+}
+.products-strip.on .product-item.delay-2 svg { animation-delay: 1s; }
+.products-strip.on .product-item.delay-3 svg { animation-delay: 2s; }
+
+
+/* ─── CLOSING ────────────────────────────── */
+.closing{
+  padding:8rem 2.5rem 6rem;text-align:center;
+  max-width:620px;margin:0 auto;
+  opacity:0;transform:translateY(36px);
+  transition:opacity 0.9s ease,transform 0.9s ease;
+}
+.closing.on{opacity:1;transform:translateY(0)}
+.closing-ch{
+  font-size:0.6rem;letter-spacing:0.45em;text-transform:uppercase;
+  color:var(--green-l);margin-bottom:2rem;
+}
+.closing-txt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.5rem,3.5vw,2.2rem);
+  font-style:italic;font-weight:300;
+  color:var(--cream);line-height:1.6;margin-bottom:2rem;
+}
+.closing-txt em{color:var(--gold)}
+.closing-tag{
+  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);
+}
+.stamp{
+  font-family:'Cormorant Garamond',serif;font-size:5rem;
+  font-style:italic;color:var(--green);
+  opacity:0.2;margin-top:3rem;letter-spacing:0.1em;user-select:none;
 }
 
-/* ─── FOOTER ────────────────────────────── */
-.closing{padding:8rem 2.5rem 6rem;text-align:center;}
-.stamp{font-family:'Cormorant Garamond',serif;font-size:5rem;font-style:italic;color:var(--green);opacity:0.2;}
+/* ─── ANIMS ──────────────────────────────── */
+@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.2}}
 
 @media(max-width:600px){
-  .experience-grid { grid-template-columns: 1fr; }
+  .story{padding:0 1.5rem}
+  .scent{margin:3rem -1rem;padding:2.5rem 1.5rem}
+  .safe-space{padding:5rem 1.5rem}
+  .products-row{gap:2.5rem}
+  .deco-sachet,.deco-soap{display:none}
+  .closing{padding:5rem 1.5rem 4rem}
 }
 </style>
 </head>
@@ -134,98 +396,169 @@ body{
 
 <section class="hero">
   <div class="isan-pattern"></div>
-  <div class="hero-logo reveal">
-    <svg viewBox="0 0 80 68" fill="none"><path d="M40 3 C42 3 44 4.5 45.5 7 L69 48 C70.5 50.5 70 54 68 55 L12 55 C10 54 9.5 50.5 11 48 L34.5 7 C36 4.5 38 3 40 3Z" fill="#3A7A52" opacity="0.9"/></svg>
+  <svg class="deco deco-leaf-bg" viewBox="0 0 120 220" xmlns="http://www.w3.org/2000/svg">
+    <path d="M60,5 C95,35 105,90 98,145 C92,185 78,210 60,218 C42,210 28,185 22,145 C15,90 25,35 60,5Z" fill="#3A7A52" stroke="#4A9A62" stroke-width="1"/>
+    <line x1="60" y1="12" x2="60" y2="210" stroke="#4A9A62" stroke-width="0.8" opacity="0.6"/>
+  </svg>
+  <svg class="deco deco-leaf-bg2" viewBox="0 0 120 220" xmlns="http://www.w3.org/2000/svg">
+    <path d="M60,5 C95,35 105,90 98,145 C92,185 78,210 60,218 C42,210 28,185 22,145 C15,90 25,35 60,5Z" fill="#3A7A52" stroke="#4A9A62" stroke-width="1"/>
+    <line x1="60" y1="12" x2="60" y2="210" stroke="#4A9A62" stroke-width="0.8" opacity="0.6"/>
+  </svg>
+  <div class="hero-logo">
+    <svg viewBox="0 0 80 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M40 3 C42 3 44 4.5 45.5 7 L69 48 C70.5 50.5 70 54 68 55 L12 55 C10 54 9.5 50.5 11 48 L34.5 7 C36 4.5 38 3 40 3Z" fill="#3A7A52" opacity="0.9"/>
+      <path d="M19 59 C20 59 21.5 60 22.5 62 L33 76 C34 78 33.5 80 32 80 L4 80 C2.5 80 2 78 3 76 L14 62 C15 60 17 59 19 59Z" fill="#3A7A52" opacity="0.75"/>
+      <path d="M61 59 C63 59 65 60 66 62 L77 76 C78 78 77.5 80 76 80 L48 80 C46.5 80 46 78 47 76 L57.5 62 C58.5 60 59 59 61 59Z" fill="#3A7A52" opacity="0.75"/>
+    </svg>
   </div>
-  <h1 class="hero-title reveal">อิแม</h1>
-  <p class="hero-sub reveal">A Journey of Remembrance</p>
+
+  <div class="hero-eyebrow">The Story of</div>
+  <h1 class="hero-title">อิแม</h1>
+  <div class="hero-rule"></div>
+  <p class="hero-sub">A Journey of Remembrance</p>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
 </section>
 
 <div class="story">
-  <section class="chapter reveal">
-    <h2 class="ch-title">The Remembrance</h2>
-    <p class="body">แบรนด์ที่สร้างขึ้นเพื่อส่งต่อความรักและความปลอดภัย ผ่านกลิ่นหอมของ <em>ใบเนียม</em> ที่เป็นตัวแทนของความทรงจำอันแสนอบอุ่น</p>
-  </section>
+<section class="chapter">
+  <div class="ch-num">Chapter I</div>
+  <h2 class="ch-title">The Beginning<span class="ch-thai">จุดเริ่มต้น</span></h2>
+  <p class="body">Imae did not start from a business plan. It started from <em>remembering something I had ignored for a long time.</em></p>
+  <p class="body">I grew up with my grandmother, whom I called <strong>"Imae"</strong> — Mother — in my local Isan language, because she raised me like her own child. She finished only Grade 4, and spent her life working for her family without ever needing a spotlight or a stage to show her talents.</p>
+  <div class="pq">"Yet, I saw the pride and joy in her eyes every time she worked — whether it was weaving, sewing, or cooking."</div>
+  <p class="body">Her value came from within. She didn't need the world to tell her what she was worth.</p>
+</section>
+<div class="div"><span>◆</span></div>
+
+<section class="chapter">
+  <div class="ch-num">Chapter II</div>
+  <h2 class="ch-title">The Missing Piece<span class="ch-thai">สิ่งที่ขาดหาย</span></h2>
+  <p class="body">As a young girl, I was like any other — searching for acceptance from the outside world, following the latest trends. I ignored her stories. I even laughed at her ideas. Not realizing how important they were, until the day she passed away.</p>
+  <p class="body">One day, while cleaning her old closet, I found a sarong she had made.</p>
+</section>
 </div>
 
-<section class="safe-space-section">
-  <div class="reveal">
-    <div style="font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--green-l);margin-bottom:1.5rem">The Feeling of Imae</div>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,4rem);font-style:italic;font-weight:300;">Safe Space Experience</h2>
-    <p style="color:var(--muted);max-width:600px;margin:1.5rem auto;font-style:italic;">สัมผัสประสบการณ์แห่งการพักผ่อนที่มากกว่าแค่กลิ่นหอม แต่คือพื้นที่ส่วนตัวที่ทำให้คุณรู้สึกปลอดภัย</p>
+<div class="scent">
+  <div class="scent-label">The Moment Everything Changed</div>
+  <div class="scent-txt">
+    "When I opened it,<br>
+    the scent of <em>BaiNiam</em> — her signature smell —<br>
+    hit my nose."
   </div>
+  <div class="scent-sub">That small scent woke up a big story in my heart.</div>
+  <div class="scent-name">ใบเนียม · Niam Leaf · Strobilanthes nivea</div>
+</div>
 
-  <div class="experience-grid">
-    <div class="exp-card reveal">
-      <span class="exp-icon">◆</span>
-      <h3 class="exp-title">Soulful Calm</h3>
-      <p class="exp-desc">กลิ่นใบเนียมสกัดเย็นช่วยปรับสมดุลทางอารมณ์ คืนความสงบให้กับจิตใจที่เหนื่อยล้าจากการแข่งขัน</p>
+<div class="story">
+<div class="div"><span>◆</span></div>
+<section class="chapter">
+  <div class="ch-num">Chapter III</div>
+  <h2 class="ch-title">The Memory<span class="ch-thai">ความทรงจำ</span></h2>
+  <p class="body">That scent brought back everything. Seeing her sewing. Hearing her funny stories. Smelling the kitchen. I remembered running to her, asking for a small ball of sticky rice with salt. It wasn't fancy food, but it was <strong>the most delicious thing I had ever tasted.</strong></p>
+  <div class="pq">"It wasn't just about the ingredients. It was because I received it in a Safe Space — a space where I didn't have to compete, or be judged by anyone."</div>
+</section>
+<div class="div"><span>◆</span></div>
+<section class="chapter">
+  <div class="ch-num">Chapter IV</div>
+  <h2 class="ch-title">The Realization<span class="ch-thai">ความตระหนัก</span></h2>
+  <p class="body">I asked myself: how long had I ignored such unconditional love — to search for something "better" from strangers?</p>
+  <div class="promise">
+    <div class="promise-txt">
+      "I will never leave what my grandmother gave me again.<br><br>
+      Even if the whole world sees no value<br>in these forgotten things,<br>
+      I will stand by them<br>and bring people back to their roots."
     </div>
-    <div class="exp-card reveal">
-      <span class="exp-icon">◆</span>
-      <h3 class="exp-title">Home Coming</h3>
-      <p class="exp-desc">ทุกสัมผัสของสบู่และถุงหอม ออกแบบมาเพื่อให้คุณรู้สึกเหมือนได้กลับบ้าน... บ้านที่มีคนรักและหวังดีรออยู่เสมอ</p>
+  </div>
+</section>
+</div>
+
+<section class="safe-space">
+  <div class="ss-label">More Than A Product</div>
+  <h2 class="ss-title">Safe Space Experience</h2>
+  <p class="ss-body">ท่ามกลางโลกที่เต็มไปด้วยการแข่งขัน ผลิตภัณฑ์ของอิแมถูกออกแบบมาเพื่อสร้างพื้นที่ปลอดภัยส่วนตัว กลิ่นหอมอันเป็นเอกลักษณ์ของใบเนียมจะช่วยเยียวยาความเหนื่อยล้า และพาคุณกลับไปยังความรู้สึกอบอุ่นเหมือนได้กลับบ้าน</p>
+  
+  <div class="ss-grid">
+    <div class="ss-card">
+      <div class="ss-icon">🌿</div>
+      <h3 class="ss-card-title">Soulful Calm</h3>
+      <p class="ss-card-desc">สัมผัสความสงบที่แท้จริง กลิ่นหอมละมุนจากธรรมชาติช่วยปรับสมดุลอารมณ์และลดความตึงเครียดจากชีวิตประจำวัน</p>
     </div>
-    <div class="exp-card reveal">
-      <span class="exp-icon">◆</span>
-      <h3 class="exp-title">Natural Shield</h3>
-      <p class="exp-desc">นวัตกรรมการสกัดสารธรรมชาติที่ให้ความเสถียร ปกป้องความรู้สึกของคุณด้วยพลังจากภูมิปัญญาที่ยั่งยืน</p>
+    <div class="ss-card">
+      <div class="ss-icon">✨</div>
+      <h3 class="ss-card-title">Home Coming</h3>
+      <p class="ss-card-desc">เติมเต็มความรู้สึกปลอดภัย เหมือนได้รับการโอบกอดจากคนที่รักและหวังดีกับเราอย่างไม่มีเงื่อนไข</p>
+    </div>
+    <div class="ss-card">
+      <div class="ss-icon">🛡️</div>
+      <h3 class="ss-card-title">Natural Protection</h3>
+      <p class="ss-card-desc">ปกป้องคุณด้วยพลังจากภูมิปัญญาที่ยั่งยืน ผสานนวัตกรรมการสกัดสารที่คงคุณค่าของสมุนไพรไว้อย่างสมบูรณ์</p>
     </div>
   </div>
 </section>
 
 <div class="products-strip">
-  <div class="reveal" style="margin-bottom:4rem">
-    <h2 style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted)">Handcrafted Innovations</h2>
-  </div>
+  <div class="products-strip-label">From the Safe Space — Our Products</div>
   <div class="products-row">
-    <div class="product-item reveal" style="transition-delay: 0.1s;">
+    <div class="product-item delay-1">
       <svg width="60" height="90" viewBox="0 0 80 110" xmlns="http://www.w3.org/2000/svg">
         <path d="M12,35 Q10,28 20,25 L60,25 Q70,28 68,35 L65,90 Q63,100 50,102 L30,102 Q17,100 15,90Z" fill="rgba(58,122,82,0.25)" stroke="#6DB285" stroke-width="1.5"/>
+        <path d="M35,25 L32,14 Q40,8 48,14 L45,25" fill="none" stroke="#6DB285" stroke-width="1.5"/>
+        <path d="M36,12 Q40,6 44,12" fill="none" stroke="#6DB285" stroke-width="2" stroke-linecap="round"/>
+        <path d="M40,55 C50,50 55,62 40,72 C25,62 30,50 40,55Z" fill="rgba(109,178,133,0.35)"/>
       </svg>
-      <p style="font-size:0.7rem;margin-top:1rem;letter-spacing:0.2em;">SACHET</p>
+      <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-top:0.6rem">ถุงหอม<br><span style="color:var(--green-l)">Sachet</span></div>
     </div>
-    <div class="product-item reveal" style="transition-delay: 0.3s;">
+    <div class="product-item delay-2">
       <svg width="50" height="90" viewBox="0 0 60 110" xmlns="http://www.w3.org/2000/svg">
         <path d="M30,3 C47,18 52,46 49,73 C46,92 39,105 30,109 C21,105 14,92 11,73 C8,46 13,18 30,3Z" fill="rgba(58,122,82,0.35)" stroke="#6DB285" stroke-width="1.2"/>
+        <line x1="30" y1="6" x2="30" y2="106" stroke="#2A5A3C" stroke-width="1.2"/>
       </svg>
-      <p style="font-size:0.7rem;margin-top:1rem;letter-spacing:0.2em;">NIAM LEAF</p>
+      <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-top:0.6rem">ใบเนียม<br><span style="color:var(--green-l)">Niam Leaf</span></div>
     </div>
-    <div class="product-item reveal" style="transition-delay: 0.5s;">
+    <div class="product-item delay-3">
       <svg width="90" height="60" viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
         <rect x="5" y="22" width="110" height="52" rx="14" fill="rgba(58,122,82,0.2)" stroke="#6DB285" stroke-width="1.5"/>
+        <rect x="15" y="30" width="90" height="36" rx="7" fill="none" stroke="#4A8C62" stroke-width="0.9" opacity="0.5"/>
       </svg>
-      <p style="font-size:0.7rem;margin-top:1rem;letter-spacing:0.2em;">HERBAL SOAP</p>
+      <div style="font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-top:0.6rem">สบู่สมุนไพร<br><span style="color:var(--green-l)">Herbal Soap</span></div>
     </div>
   </div>
 </div>
 
-<section class="closing reveal">
+<div class="story">
+<section class="chapter">
+  <div class="ch-num">Chapter V</div>
+  <h2 class="ch-title">Imae OS<span class="ch-thai">ระบบที่ยั่งยืน</span></h2>
+  <p class="body">Products can only bring you to this safe space temporarily. When you open the door, the outside world works with the opposite logic — competition, and the belief that <em>"more is winning."</em></p>
+  <div class="pq">"We created Imae OS — a system that rewards the value of giving. Not for competition or keeping, but for giving."</div>
+</section>
+</div>
+
+<section class="closing">
+  <div class="closing-ch">The Goal</div>
+  <div class="closing-txt">
+    "My duty is to protect the <em>spirit</em> of this seed.<br><br>
+    So that I can plant it in a <em>Safe Space</em><br>
+    and let it grow exactly as it should be."
+  </div>
+  <div class="closing-tag">As long as we remember our roots, we will never be lost.</div>
   <div class="stamp">อิแม</div>
-  <p class="closing-tag">As long as we remember our roots, we will never be lost.</p>
 </section>
 
 <script>
-// ระบบ Intersection Observer สำหรับ Scroll Reveal
-const observerOptions = { threshold: 0.15 };
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('on');
+// สคริปต์ตรวจจับการเลื่อนหน้าจอเพื่อให้แอนิเมชันทำงาน
+const io = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('on');
     }
-  });
-}, observerOptions);
+  })
+}, { threshold: 0.15 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// ระบบ Parallax เล็กน้อยสำหรับ Product Items
-window.addEventListener('scroll', () => {
-  const scrolled = window.pageYOffset;
-  document.querySelectorAll('.product-item').forEach((item, index) => {
-    const speed = 0.05 * (index + 1);
-    item.style.transform = `translateY(${scrolled * speed * -1}px)`;
-  });
-});
+document.querySelectorAll('.chapter, .scent, .mission, .closing, .div, .products-strip, .safe-space').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
