@@ -33,10 +33,10 @@ body{
   overflow-x:hidden;
 }
 
-/* ─── NEW ANIMATION SYSTEM ────────────────── */
+/* ─── ANIMATION SYSTEM ─────────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(35px);
   transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal.on {
@@ -61,96 +61,87 @@ body{
 .deco{position:absolute;pointer-events:none;user-select:none}
 .deco-leaf-bg{top:-5%;right:-3%;width:55vmin;opacity:0.06;transform:rotate(20deg)}
 .deco-leaf-bg2{bottom:5%;left:-4%;width:40vmin;opacity:0.05;transform:rotate(-30deg) scaleX(-1)}
-.deco-sachet{bottom:12%;right:6%;width:90px;opacity:0.18}
-.deco-soap{top:18%;left:5%;width:100px;opacity:0.15}
-.hero-logo{margin-bottom:1.8rem;opacity:0;animation:fu 1s ease 0.3s forwards;}
+.hero-logo{margin-bottom:1.8rem;}
 .hero-logo svg{width:64px;height:auto}
-.hero-eyebrow{font-family:'Lora',serif;font-size:0.65rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--green-l);margin-bottom:1.2rem;opacity:0;animation:fu 1s ease 0.5s forwards;}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(5rem,17vw,12rem);font-weight:300;font-style:italic;line-height:0.88;color:var(--cream);letter-spacing:-0.01em;opacity:0;animation:fu 1.3s ease 0.7s forwards;}
-.hero-rule{width:60px;height:1px;background:linear-gradient(to right,transparent,var(--green-l),transparent);margin:1.8rem auto;opacity:0;animation:fu 1s ease 1s forwards;}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.2vw,1.3rem);font-style:italic;font-weight:300;color:var(--muted);letter-spacing:0.06em;opacity:0;animation:fu 1s ease 1.2s forwards;}
-.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--muted);opacity:0;animation:fu 1s ease 1.6s forwards;display:flex;flex-direction:column;align-items:center;gap:0.8rem;}
-.scroll-line{width:1px;height:38px;background:linear-gradient(to bottom,var(--green-l),transparent);animation:pulse 2.2s ease-in-out 2s infinite;}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(5rem,17vw,12rem);
+  font-weight:300;font-style:italic;
+  line-height:0.88;color:var(--cream);
+  letter-spacing:-0.01em;
+}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.2vw,1.3rem);font-style:italic;color:var(--muted);margin-top:1.5rem}
 
 /* ─── STORY ─────────────────────────────── */
 .story{max-width:680px;margin:0 auto;padding:0 2.5rem}
 .chapter{padding:6rem 0 2rem;}
-.ch-num{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--green-l);margin-bottom:0.9rem;}
-.ch-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,2.9rem);font-weight:400;font-style:italic;color:var(--cream);line-height:1.15;}
-.ch-thai{font-family:'Noto Serif Thai',serif;font-size:0.6em;font-style:normal;font-weight:300;color:var(--muted);display:block;margin-top:0.25rem;margin-bottom:1.8rem;letter-spacing:0.04em;}
+.ch-num{font-size:0.6rem;letter-spacing:0.5em;text-transform:uppercase;color:var(--green-l);margin-bottom:0.9rem}
+.ch-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,2.9rem);font-weight:400;font-style:italic;color:var(--cream);line-height:1.15}
+.ch-thai{font-family:'Noto Serif Thai',serif;font-size:0.6em;font-style:normal;font-weight:300;color:var(--muted);display:block;margin-top:0.25rem;margin-bottom:1.8rem}
 .body{color:#A8C8A0;font-size:1rem;line-height:1.95;margin-bottom:1.4rem}
-.body strong,.body em{color:var(--cream)}
-.body em{font-style:italic}
-.pq{border-left:2px solid var(--green);padding:1rem 0 1rem 2rem;margin:2.5rem 0;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;font-weight:300;color:var(--green-l);line-height:1.55;}
-
-/* ─── SAFE SPACE EXPERIENCE (NEW SECTION) ── */
-.safe-space-box {
-  padding: 6rem 2rem;
-  background: linear-gradient(to bottom, var(--bg), var(--bg2), var(--bg));
-  text-align: center;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  margin: 4rem 0;
-}
-.ss-grid {
-  display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
-  max-width: 900px; margin: 3rem auto 0;
-}
-.ss-card {
-  flex: 1; min-width: 250px; padding: 2.5rem;
-  background: rgba(255,255,255,0.02); border: 1px solid var(--border);
-  transition: all 0.5s ease;
-}
-.ss-card:hover { border-color: var(--green); background: rgba(58,122,82,0.05); }
-.ss-icon { font-size: 2rem; color: var(--gold); margin-bottom: 1rem; display: block; }
-.ss-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; color: var(--cream); margin-bottom: 1rem; }
-.ss-desc { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+.pq{border-left:2px solid var(--green);padding:1rem 0 1rem 2rem;margin:2.5rem 0;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;font-weight:300;color:var(--green-l)}
 
 /* ─── SCENT MOMENT ───────────────────────── */
-.scent{background:radial-gradient(ellipse at center,#142E1C 0%,var(--bg2) 65%);border:1px solid var(--border);padding:4rem 3rem;margin:4rem -2rem;text-align:center;position:relative;overflow:hidden;}
-.scent-txt{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3.5vw,1.9rem);font-style:italic;font-weight:300;color:var(--cream);line-height:1.55;}
-.scent-sub{color:var(--muted);font-size:0.92rem;margin-top:0.8rem;font-style:italic}
-.scent-name{font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--green-l);margin-top:1.8rem;}
+.scent{
+  background:radial-gradient(ellipse at center,#142E1C 0%,var(--bg2) 65%);
+  border:1px solid var(--border);
+  padding:4rem 3rem;margin:4rem -2rem;
+  text-align:center;position:relative;overflow:hidden;
+}
+.scent-txt{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3.5vw,1.9rem);font-style:italic;color:var(--cream);line-height:1.55}
 
-/* ─── PROMISE ────────────────────────────── */
-.promise{background:var(--bg2);border:1px solid var(--border);padding:3rem 2.5rem;margin:2.5rem 0;text-align:center;position:relative;}
-.promise-txt{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3vw,1.65rem);font-style:italic;font-weight:300;color:var(--cream);line-height:1.65;}
+/* ─── SAFE SPACE EXPERIENCE (NEW) ────────── */
+.safe-space-section {
+  padding: 8rem 2.5rem;
+  background: linear-gradient(to bottom, var(--bg), var(--bg2), var(--bg));
+  text-align: center;
+}
+.ss-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 4rem auto 0;
+}
+.ss-card {
+  padding: 3rem 2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  transition: all 0.4s ease;
+}
+.ss-card:hover { border-color: var(--green); background: rgba(58,122,82,0.05); }
+.ss-icon { font-size: 2rem; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+.ss-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; color: var(--cream); margin-bottom: 1rem; }
+.ss-card-desc { font-size: 0.9rem; color: var(--muted); }
 
 /* ─── MISSION ────────────────────────────── */
-.mission{min-height:72vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2.5rem;background:radial-gradient(ellipse 80% 60% at 50% 50%,#0E2818 0%,var(--bg) 70%);position:relative;overflow:hidden;}
-.mission-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,8vw,5.5rem);font-style:italic;font-weight:300;color:var(--cream);line-height:1.15;margin-bottom:1.5rem;}
-.mission-title em{color:var(--gold);font-style:italic}
+.mission{
+  min-height:70vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:6rem 2.5rem;position:relative;overflow:hidden;
+}
+.mission-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,8vw,5.5rem);font-style:italic;color:var(--cream)}
 
 /* ─── PRODUCTS STRIP ─────────────────────── */
-.products-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3.5rem 2.5rem;text-align:center;}
-.products-row{display:flex;justify-content:center;align-items:flex-end;gap:3rem;flex-wrap:wrap;}
+.products-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2.5rem;text-align:center}
+.products-row{display:flex;justify-content:center;align-items:flex-end;gap:4rem;flex-wrap:wrap}
 .product-item { transition: transform 0.1s ease-out; }
 
 /* ─── CLOSING ────────────────────────────── */
 .closing{padding:8rem 2.5rem 6rem;text-align:center;max-width:620px;margin:0 auto}
-.stamp{font-family:'Cormorant Garamond',serif;font-size:5rem;font-style:italic;color:var(--green);opacity:0.2;margin-top:3rem;letter-spacing:0.1em;user-select:none;}
+.stamp{font-family:'Cormorant Garamond',serif;font-size:5rem;font-style:italic;color:var(--green);opacity:0.2;margin-top:3rem}
 
-@keyframes fu{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.2}}
-@media(max-width:600px){ .story{padding:0 1.5rem} .scent{margin:3rem -1rem;padding:2.5rem 1.5rem} .closing{padding:5rem 1.5rem 4rem} }
+@media(max-width:600px){ .story{padding:0 1.5rem} .scent{margin:3rem -1rem} .products-row{gap:2.5rem} }
 </style>
 </head>
 <body>
 
 <section class="hero">
   <div class="isan-pattern"></div>
-  <div class="hero-logo">
-    <svg viewBox="0 0 80 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M40 3 C42 3 44 4.5 45.5 7 L69 48 C70.5 50.5 70 54 68 55 L12 55 C10 54 9.5 50.5 11 48 L34.5 7 C36 4.5 38 3 40 3Z" fill="#3A7A52" opacity="0.9"/>
-      <path d="M19 59 C20 59 21.5 60 22.5 62 L33 76 C34 78 33.5 80 32 80 L4 80 C2.5 80 2 78 3 76 L14 62 C15 60 17 59 19 59Z" fill="#3A7A52" opacity="0.75"/>
-      <path d="M61 59 C63 59 65 60 66 62 L77 76 C78 78 77.5 80 76 80 L48 80 C46.5 80 46 78 47 76 L57.5 62 C58.5 60 59 59 61 59Z" fill="#3A7A52" opacity="0.75"/>
-    </svg>
+  <div class="hero-logo reveal">
+    <svg viewBox="0 0 80 68" fill="none"><path d="M40 3 C42 3 44 4.5 45.5 7 L69 48 C70.5 50.5 70 54 68 55 L12 55 C10 54 9.5 50.5 11 48 L34.5 7 C36 4.5 38 3 40 3Z" fill="#3A7A52" opacity="0.9"/></svg>
   </div>
-  <div class="hero-eyebrow">The Story of</div>
-  <h1 class="hero-title">อิแม</h1>
-  <div class="hero-rule"></div>
-  <p class="hero-sub">A Journey of Remembrance</p>
-  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+  <h1 class="hero-title reveal">อิแม</h1>
+  <p class="hero-sub reveal">A Journey of Remembrance</p>
 </section>
 
 <div class="story">
@@ -171,68 +162,70 @@ body{
 </div>
 
 <div class="scent reveal">
-  <div class="scent-label">The Moment Everything Changed</div>
-  <div class="scent-txt">"When I opened it,<br>the scent of <em>BaiNiam</em> — her signature smell —<br>hit my nose."</div>
-  <div class="scent-name">ใบเนียม · Niam Leaf · Strobilanthes nivea</div>
-</div>
-
-<section class="safe-space-box reveal">
-  <div style="font-size:0.6rem;letter-spacing:0.5em;color:var(--green-l);margin-bottom:1rem">A Gift from Remembrance</div>
-  <h2 class="ch-title" style="font-size:3rem">Safe Space Experience</h2>
-  <div class="ss-grid">
-    <div class="ss-card">
-      <span class="ss-icon">🌿</span>
-      <h3 class="ss-title">Soulful Calm</h3>
-      <p class="ss-desc">กลิ่นหอมจากใบเนียมช่วยปรับสมดุลอารมณ์ คืนความสงบให้จิตใจท่ามกลางโลกที่วุ่นวาย</p>
-    </div>
-    <div class="ss-card">
-      <span class="ss-icon">✨</span>
-      <h3 class="ss-title">Home Coming</h3>
-      <p class="ss-desc">ทุกสัมผัสออกแบบมาเพื่อให้คุณรู้สึกปลอดภัย เหมือนได้รับการโอบกอดจากความทรงจำที่แสนดี</p>
-    </div>
-    <div class="ss-card">
-      <span class="ss-icon">🛡️</span>
-      <h3 class="ss-title">Natural Shield</h3>
-      <p class="ss-desc">นวัตกรรมการสกัดสารธรรมชาติที่คงคุณค่าของภูมิปัญญา เพื่อการดูแลที่ยั่งยืน</p>
-    </div>
+  <div class="scent-txt">
+    "When I opened it, the scent of <em>BaiNiam</em> — her signature smell — hit my nose."
   </div>
-</section>
+  <div style="color:var(--green-l);margin-top:1.5rem;font-size:0.7rem;letter-spacing:0.3em">NIAM LEAF · STROBILANTHES NIVEA</div>
+</div>
 
 <div class="story">
   <section class="chapter reveal">
     <div class="ch-num">Chapter III</div>
     <h2 class="ch-title">The Memory<span class="ch-thai">ความทรงจำ</span></h2>
-    <p class="body">That scent brought back everything. Seeing her sewing. Hearing her funny stories. It wasn't fancy food, but it was <strong>the most delicious thing I had ever tasted.</strong></p>
+    <p class="body">That scent brought back everything. Seeing her sewing. Hearing her funny stories. I remembered asking for a small ball of sticky rice with salt. It was <strong>the most delicious thing I had ever tasted.</strong></p>
     <div class="pq">"It was because I received it in a Safe Space — a space where I didn't have to compete."</div>
   </section>
 
   <section class="chapter reveal">
     <div class="ch-num">Chapter IV</div>
     <h2 class="ch-title">The Realization<span class="ch-thai">ความตระหนัก</span></h2>
-    <div class="promise">
-      <p class="promise-txt">"I will never leave what my grandmother gave me again. I will bring people back to their roots."</p>
+    <p class="body">I asked myself: how long had I ignored such unconditional love?</p>
+    <div style="background:var(--bg2);padding:2.5rem;text-align:center;border:1px solid var(--border)">
+      <p style="font-style:italic">"I will never leave what my grandmother gave me again. I will bring people back to their roots."</p>
     </div>
   </section>
 </div>
 
+<section class="safe-space-section reveal">
+  <div style="font-size:0.6rem;letter-spacing:0.5em;color:var(--green-l);margin-bottom:1rem">The Feeling of Imae</div>
+  <h2 class="ch-title" style="font-size:3rem">Safe Space Experience</h2>
+  <div class="ss-grid">
+    <div class="ss-card">
+      <span class="ss-icon">🌿</span>
+      <h3 class="ss-card-title">Soulful Calm</h3>
+      <p class="ss-card-desc">กลิ่นใบเนียมช่วยปรับสมดุลอารมณ์ คืนความสงบให้จิตใจที่เหนื่อยล้า</p>
+    </div>
+    <div class="ss-card">
+      <span class="ss-icon">✨</span>
+      <h3 class="ss-card-title">Home Coming</h3>
+      <p class="ss-card-desc">เติมเต็มความรู้สึกปลอดภัย เหมือนได้รับการโอบกอดจากความทรงจำที่แสนดี</p>
+    </div>
+    <div class="ss-card">
+      <span class="ss-icon">🛡️</span>
+      <h3 class="ss-card-title">Natural Shield</h3>
+      <p class="ss-card-desc">ปกป้องคุณด้วยพลังจากภูมิปัญญาและนวัตกรรมการสกัดสารธรรมชาติ</p>
+    </div>
+  </div>
+</section>
+
 <section class="mission reveal">
   <div class="mission-title"><em>Wake Up</em> Your Memories</div>
-  <p class="mission-body">Imae is not just a brand. It is that <em>Safe Space</em> — where everyone can find their way back to their own internal warmth.</p>
+  <p style="color:var(--muted);max-width:500px;margin-top:2rem">Imae is not just a brand. It is that Safe Space where everyone can find their way back to their own internal warmth.</p>
 </section>
 
 <div class="products-strip reveal">
   <div class="products-row">
     <div class="product-item" data-speed="0.05">
       <svg width="60" height="90" viewBox="0 0 80 110"><path d="M12,35 Q10,28 20,25 L60,25 Q70,28 68,35 L65,90 Q63,100 50,102 L30,102 Q17,100 15,90Z" fill="rgba(58,122,82,0.25)" stroke="#6DB285" stroke-width="1.5"/></svg>
-      <div style="font-size:0.65rem;color:var(--muted);margin-top:0.6rem">SACHET</div>
+      <p style="font-size:0.6rem;margin-top:1rem">SACHET</p>
     </div>
     <div class="product-item" data-speed="0.1">
       <svg width="50" height="90" viewBox="0 0 60 110"><path d="M30,3 C47,18 52,46 49,73 C46,92 39,105 30,109 C21,105 14,92 11,73 C8,46 13,18 30,3Z" fill="rgba(58,122,82,0.35)" stroke="#6DB285" stroke-width="1.2"/></svg>
-      <div style="font-size:0.65rem;color:var(--muted);margin-top:0.6rem">NIAM LEAF</div>
+      <p style="font-size:0.6rem;margin-top:1rem">NIAM LEAF</p>
     </div>
     <div class="product-item" data-speed="0.07">
       <svg width="90" height="60" viewBox="0 0 120 80"><rect x="5" y="22" width="110" height="52" rx="14" fill="rgba(58,122,82,0.2)" stroke="#6DB285" stroke-width="1.5"/></svg>
-      <div style="font-size:0.65rem;color:var(--muted);margin-top:0.6rem">HERBAL SOAP</div>
+      <p style="font-size:0.6rem;margin-top:1rem">HERBAL SOAP</p>
     </div>
   </div>
 </div>
@@ -241,17 +234,17 @@ body{
   <section class="chapter reveal">
     <div class="ch-num">Chapter V</div>
     <h2 class="ch-title">Imae OS<span class="ch-thai">ระบบที่ยั่งยืน</span></h2>
-    <p class="body">We created Imae OS — a system that rewards the value of giving. Not for competition, but for sharing.</p>
+    <p class="body">We created Imae OS — a system that rewards the value of giving. Not for competition, but for sharing wisdom.</p>
   </section>
 </div>
 
 <section class="closing reveal">
   <div class="stamp">อิแม</div>
-  <div class="closing-tag">As long as we remember our roots, we will never be lost.</div>
+  <p style="font-size:0.7rem;letter-spacing:0.2em;color:var(--muted);margin-top:2rem">As long as we remember our roots, we will never be lost.</p>
 </section>
 
 <script>
-// ระบบ Reveal Animation เมื่อเลื่อนหน้าจอ
+// Intersection Observer for Reveal Animation
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('on');
@@ -260,9 +253,10 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// ระบบ Parallax สำหรับสินค้า
+// Parallax effect for Product Items
 window.addEventListener('scroll', () => {
-  document.querySelectorAll('.product-item').forEach(item => {
+  const items = document.querySelectorAll('.product-item');
+  items.forEach(item => {
     const speed = item.getAttribute('data-speed');
     const yPos = -(window.pageYOffset * speed);
     item.style.transform = `translateY(${yPos}px)`;
