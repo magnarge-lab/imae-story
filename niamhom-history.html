@@ -291,6 +291,50 @@ body > *{position:relative;z-index:1}
   color:#6f9278;
 }
 
+
+/* SITE-WIDE LANGUAGE TOGGLE */
+.lang-toggle{
+  border:1px solid rgba(109,178,133,.46);
+  color:var(--cream);
+  background:rgba(12,30,17,.42);
+  font-family:'Lora','Noto Serif Thai',Georgia,serif;
+  font-size:.58rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  padding:.34rem .62rem;
+  cursor:pointer;
+  transition:.25s;
+}
+.lang-toggle:hover{
+  transform:translateY(-1px);
+  border-color:var(--green-l);
+  background:rgba(109,178,133,.12);
+}
+body.lang-th{
+  font-family:'Noto Serif Thai','Lora',Georgia,serif;
+}
+body.lang-th .body,
+body.lang-th p,
+body.lang-th .origin-copy,
+body.lang-th .origin-thai,
+body.lang-th .hero-sub,
+body.lang-th .mission-body,
+body.lang-th .contact-intro{
+  line-height:2.05;
+}
+body.lang-th h1,
+body.lang-th h2,
+body.lang-th h3,
+body.lang-th .hero-title,
+body.lang-th .origin-title,
+body.lang-th .ch-title,
+body.lang-th .mission-title,
+body.lang-th .pathways-title,
+body.lang-th .contact-title,
+body.lang-th .closing-txt{
+  font-family:'Cormorant Garamond','Noto Serif Thai',serif;
+}
+
 </style>
 </head>
 <body>
@@ -304,6 +348,7 @@ body > *{position:relative;z-index:1}
       <a href="#" style="color:var(--cream)">Niamhom</a>
       <a href="imae-os.html">Imae OS</a>
       <a href="index.html#contact">Contact</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">ไทย</button>
     </div>
   </div>
 </nav>
@@ -444,10 +489,136 @@ body > *{position:relative;z-index:1}
 </footer>
 
 <div class="isan"></div>
+
+<script>
+(function(){
+  const KEY = "imaeSiteLang";
+  const copy = {
+    en: {
+      button:"ไทย", title:"Niamhom Leaf — Isan Heritage Ingredient | Imae",
+      nav:["Story","Niamhom","Imae OS","Contact"],
+      kicker:"Heritage Ingredient", h1:"Niamhom<br><em>Leaf</em>",
+      heroSub:"Before Niamhom became an ingredient, it was a living memory — an aromatic leaf remembered through Isan households, ancestral care, and the quiet intelligence of local ways of life.",
+      heroThai:"ใบเนียมหอมไม่ใช่เพียงวัตถุดิบกลิ่นหอม แต่คือความทรงจำของภูมิปัญญาท้องถิ่นอีสาน ที่สืบทอดผ่านการใช้จริงในครัวเรือน การดูแลร่างกาย บ้าน และวิถีชีวิตประจำวัน",
+      source:"Botanical photo reference: ", note:"A heritage ingredient is not valuable because it is rare alone. It is valuable because people remembered how to live with it.",
+      sections:[
+        {label:"01 — Living Traditional Knowledge",title:"ภูมิปัญญาที่อยู่ในชีวิตจริง",body:[
+          "In Isan, plant knowledge has often lived outside written records. It was carried in ordinary acts: the way elders selected leaves by scent, the way aromatic plants were kept close to the body and the home, and the way care was practiced through simple, repeatable routines.",
+          "<strong>Niamhom</strong> belongs to this kind of knowledge. Its value is not only botanical. It is cultural, sensory, and relational — a leaf remembered through use, touch, scent, and family memory."
+        ],quote:"“Some knowledge is not preserved in books first. It is preserved in hands, homes, and repeated care.”"},
+        {label:"02 — Why Isan Matters",title:"The Isan context",body:[
+          "The northeastern region of Thailand has long developed its own relationship with plants, scent, food, craft, and household care. Local aromatic plants were part of a practical intelligence shaped by climate, availability, seasonal rhythm, and community memory.",
+          "For Imae, the story of Niamhom is therefore not presented as a generic herb story. It is approached as a regional heritage narrative: a plant connected to place, language, use, and the lived knowledge of people who kept it meaningful."
+        ],cards:[["Place","Connected to Isan landscape, household life, and local memory."],["Practice","Remembered through repeated use, scent recognition, and care rituals."],["People","Carried by elders, families, growers, and community-based knowledge holders."]]},
+        {label:"03 — From Oral Memory to Documentation",title:"จากเรื่องเล่าสู่การคุ้มครองมรดกท้องถิ่น",body:[
+          "Traditional knowledge can disappear when it is treated as too ordinary to document. Imae’s work is to help turn living memory into a clearer heritage record — without taking it away from the community that gave it meaning.",
+          "This means documenting the local name, context of use, cultivation knowledge, sensory profile, and community relationship around Niamhom, while avoiding exaggerated claims or medical promises. The goal is cultural clarity, responsible development, and benefit that can return to local people."
+        ],steps:[["01","Listen","Collect local memory, family stories, and use context."],["02","Observe","Record plant features, aroma, growing conditions, and handling."],["03","Cultivate","Study growing methods with community partners."],["04","Develop","Transform the ingredient into responsible product concepts."],["05","Protect","Build a heritage narrative that respects origin and community value."]]},
+        {label:"04 — Imae’s Position",title:"Heritage innovation,<br><em>not extraction</em>",body:[
+          "Imae does not see Niamhom as a trend ingredient to be taken, renamed, and commercialized without context. We see it as a bridge between ancestral care and contemporary product development.",
+          "Our responsibility is to preserve the story, study the plant with care, develop it with integrity, and make sure the meaning of the ingredient remains connected to the people and place it came from."
+        ],quote:"“The future of heritage is not only to remember the past, but to design systems that allow the past to nourish the future.”"},
+        {label:"05 — Important Note",title:"Cultural context,<br><em>not medical claim</em>",body:[
+          "This page presents Niamhom as a heritage and cultural ingredient. It is not intended to diagnose, treat, cure, or prevent disease. Any future product development should follow appropriate safety, cosmetic, regulatory, and research standards."
+        ]}
+      ],
+      ctaTitle:"From Isan memory<br>to responsible innovation.",
+      ctaBody:"For heritage ingredient studies, cultivation collaboration, product development, or strategic partnership, contact Imae Innovation.",
+      actions:["Contact & Collaboration","Explore Imae OS","Back to Imae Story"],
+      footer:["© Imae Innovation (Thailand) Company Limited","Niamhom Leaf · Isan Heritage Ingredient"]
+    },
+    th: {
+      button:"EN", title:"ใบเนียมหอม — วัตถุดิบมรดกอีสาน | Imae",
+      nav:["เรื่องราว","เนียมหอม","Imae OS","ติดต่อ"],
+      kicker:"วัตถุดิบมรดกท้องถิ่น", h1:"ใบ<br><em>เนียมหอม</em>",
+      heroSub:"ก่อนที่ใบเนียมหอมจะถูกมองเป็นวัตถุดิบ มันเคยเป็นความทรงจำที่มีชีวิต — ใบหอมที่อยู่ในบ้านอีสาน การดูแลแบบบรรพบุรุษ และปัญญาเงียบๆ ของวิถีท้องถิ่น",
+      heroThai:"ใบเนียมหอมไม่ใช่เพียงวัตถุดิบกลิ่นหอม แต่คือความทรงจำของภูมิปัญญาท้องถิ่นอีสาน ที่สืบทอดผ่านการใช้จริงในครัวเรือน การดูแลร่างกาย บ้าน และวิถีชีวิตประจำวัน",
+      source:"แหล่งอ้างอิงภาพพฤกษศาสตร์: ", note:"วัตถุดิบมรดกไม่ได้มีคุณค่าเพียงเพราะหายาก แต่มีคุณค่าเพราะผู้คนยังจดจำวิธีอยู่ร่วมกับมัน",
+      sections:[
+        {label:"01 — ภูมิปัญญาที่มีชีวิต",title:"ภูมิปัญญาที่อยู่ในชีวิตจริง",body:[
+          "ในอีสาน ความรู้เรื่องพืชมักไม่ได้อยู่ในตำราเป็นอันดับแรก แต่อยู่ในกิจวัตรธรรมดา วิธีที่ผู้เฒ่าเลือกใบจากกลิ่น วิธีเก็บพืชหอมไว้ใกล้ตัวและบ้าน และวิธีดูแลกันผ่านสิ่งเรียบง่ายที่ทำซ้ำได้ทุกวัน",
+          "<strong>เนียมหอม</strong> อยู่ในความรู้ลักษณะนี้ คุณค่าของมันไม่ได้มีเพียงด้านพฤกษศาสตร์ แต่เป็นคุณค่าทางวัฒนธรรม กลิ่น สัมผัส ความสัมพันธ์ และความทรงจำของครอบครัว"
+        ],quote:"“ความรู้บางอย่างไม่ได้ถูกเก็บไว้ในหนังสือก่อน แต่มันถูกเก็บไว้ในมือ ในบ้าน และในการดูแลที่ทำซ้ำกัน”"},
+        {label:"02 — ทำไมต้องเป็นอีสาน",title:"บริบทของอีสาน",body:[
+          "ภาคอีสานมีความสัมพันธ์เฉพาะตัวกับพืช กลิ่น อาหาร งานฝีมือ และการดูแลบ้าน พืชหอมท้องถิ่นจึงเป็นส่วนหนึ่งของปัญญาปฏิบัติที่เกิดจากภูมิอากาศ ความพร้อมของทรัพยากร ฤดูกาล และความทรงจำของชุมชน",
+          "สำหรับ Imae เรื่องของเนียมหอมจึงไม่ใช่เรื่องสมุนไพรทั่วไป แต่เป็นเรื่องเล่ามรดกท้องถิ่นที่เชื่อมโยงกับพื้นที่ ภาษา การใช้จริง และผู้คนที่รักษาความหมายของมันไว้"
+        ],cards:[["พื้นที่","เชื่อมโยงกับภูมิทัศน์อีสาน ชีวิตในบ้าน และความทรงจำท้องถิ่น"],["วิถีใช้","ถูกจดจำผ่านการใช้ซ้ำ การรับรู้กลิ่น และพิธีกรรมการดูแล"],["ผู้คน","ถูกส่งต่อโดยผู้เฒ่า ครอบครัว เกษตรกร และผู้ถือครองความรู้ชุมชน"]]},
+        {label:"03 — จากเรื่องเล่าสู่การบันทึก",title:"จากเรื่องเล่าสู่การคุ้มครองมรดกท้องถิ่น",body:[
+          "ภูมิปัญญาท้องถิ่นอาจหายไปได้ เมื่อมันถูกมองว่าเป็นเรื่องธรรมดาเกินกว่าจะบันทึก งานของ Imae คือช่วยเปลี่ยนความทรงจำที่มีชีวิตให้กลายเป็นบันทึกมรดกที่ชัดขึ้น โดยไม่พรากมันออกจากชุมชนที่ให้ความหมายกับมัน",
+          "สิ่งนี้หมายถึงการบันทึกชื่อท้องถิ่น บริบทการใช้ ความรู้การปลูก โปรไฟล์กลิ่น และความสัมพันธ์ของชุมชนรอบเนียมหอม โดยไม่กล่าวอ้างเกินจริงหรือให้คำมั่นทางการแพทย์ เป้าหมายคือความชัดเจนทางวัฒนธรรม การพัฒนาอย่างรับผิดชอบ และประโยชน์ที่กลับคืนสู่คนท้องถิ่น"
+        ],steps:[["01","ฟัง","รวบรวมความทรงจำท้องถิ่น เรื่องเล่าครอบครัว และบริบทการใช้"],["02","สังเกต","บันทึกลักษณะพืช กลิ่น สภาพการปลูก และการจัดการ"],["03","ปลูกศึกษา","ศึกษาวิธีปลูกร่วมกับพันธมิตรชุมชน"],["04","พัฒนา","แปลงวัตถุดิบเป็นแนวคิดผลิตภัณฑ์อย่างรับผิดชอบ"],["05","ปกป้อง","สร้างเรื่องเล่ามรดกที่เคารพต้นทางและคุณค่าชุมชน"]]},
+        {label:"04 — จุดยืนของ Imae",title:"นวัตกรรมมรดก<br><em>ไม่ใช่การสกัดเอาไป</em>",body:[
+          "Imae ไม่ได้มองเนียมหอมเป็นวัตถุดิบตามกระแสที่หยิบไปเปลี่ยนชื่อและทำการค้าโดยไร้บริบท เรามองมันเป็นสะพานระหว่างการดูแลแบบบรรพบุรุษกับการพัฒนาผลิตภัณฑ์ร่วมสมัย",
+          "ความรับผิดชอบของเราคือรักษาเรื่องราว ศึกษาพืชอย่างระมัดระวัง พัฒนาอย่างมีความซื่อสัตย์ และทำให้ความหมายของวัตถุดิบยังเชื่อมโยงกับผู้คนและพื้นที่ต้นทาง"
+        ],quote:"“อนาคตของมรดกไม่ใช่แค่การจดจำอดีต แต่คือการออกแบบระบบที่ทำให้อดีตยังหล่อเลี้ยงอนาคตได้”"},
+        {label:"05 — หมายเหตุสำคัญ",title:"บริบททางวัฒนธรรม<br><em>ไม่ใช่การกล่าวอ้างทางการแพทย์</em>",body:[
+          "หน้านี้นำเสนอเนียมหอมในฐานะวัตถุดิบทางมรดกและวัฒนธรรม ไม่ได้มีวัตถุประสงค์เพื่อวินิจฉัย รักษา บรรเทา หรือป้องกันโรค การพัฒนาผลิตภัณฑ์ในอนาคตควรเป็นไปตามมาตรฐานความปลอดภัย เครื่องสำอาง กฎหมาย และงานวิจัยที่เหมาะสม"
+        ]}
+      ],
+      ctaTitle:"จากความทรงจำอีสาน<br>สู่นวัตกรรมที่รับผิดชอบ",
+      ctaBody:"สำหรับการศึกษาวัตถุดิบมรดกท้องถิ่น ความร่วมมือด้านการปลูก การพัฒนาผลิตภัณฑ์ หรือพันธมิตรเชิงกลยุทธ์ ติดต่อ Imae Innovation",
+      actions:["ติดต่อ / ร่วมงาน","อ่าน Imae OS","กลับหน้าเรื่องราว"],
+      footer:["© บริษัท อิแม อินโนเวชั่น (ประเทศไทย) จำกัด","ใบเนียมหอม · วัตถุดิบมรดกอีสาน"]
+    }
+  };
+
+  function setHTML(sel, html){ const el=document.querySelector(sel); if(el) el.innerHTML=html; }
+  function applyLanguage(lang){
+    const t=copy[lang] || copy.en;
+    document.documentElement.lang = lang === "th" ? "th" : "en";
+    document.body.classList.toggle("lang-th", lang === "th");
+    document.title=t.title;
+    const btn=document.getElementById("langToggle"); if(btn) btn.textContent=t.button;
+    document.querySelectorAll(".nav-links a").forEach((a,i)=>{ if(t.nav[i]) a.textContent=t.nav[i]; });
+    setHTML(".kicker", t.kicker);
+    setHTML("h1", t.h1);
+    setHTML(".hero-sub", t.heroSub);
+    setHTML(".hero-thai", t.heroThai);
+    const src=document.querySelector(".leaf-source");
+    if(src){
+      const link=src.querySelector("a")?.outerHTML || "";
+      src.innerHTML=t.source + link;
+    }
+    setHTML(".card-note", t.note);
+
+    const sections=document.querySelectorAll(".main .section");
+    sections.forEach((sec,i)=>{
+      const s=t.sections[i]; if(!s) return;
+      const label=sec.querySelector(".sec-label"); if(label) label.innerHTML=s.label;
+      const h2=sec.querySelector("h2"); if(h2) h2.innerHTML=s.title;
+      sec.querySelectorAll("p.body").forEach((p,j)=>{ if(s.body && s.body[j]) p.innerHTML=s.body[j]; });
+      const quote=sec.querySelector(".quote"); if(quote && s.quote) quote.innerHTML=s.quote;
+      sec.querySelectorAll(".info-card").forEach((card,j)=>{
+        if(s.cards && s.cards[j]){
+          card.querySelector("h3").innerHTML=s.cards[j][0];
+          card.querySelector("p").innerHTML=s.cards[j][1];
+        }
+      });
+      sec.querySelectorAll(".step").forEach((step,j)=>{
+        if(s.steps && s.steps[j]){
+          step.querySelector(".step-no").innerHTML=s.steps[j][0];
+          step.querySelector(".step-title").innerHTML=s.steps[j][1];
+          step.querySelector("p").innerHTML=s.steps[j][2];
+        }
+      });
+    });
+    setHTML(".cta h2", t.ctaTitle);
+    setHTML(".cta p", t.ctaBody);
+    document.querySelectorAll(".actions .btn").forEach((a,i)=>{ if(t.actions[i]) a.textContent=t.actions[i]; });
+    document.querySelectorAll(".footer div").forEach((d,i)=>{ if(t.footer[i]) d.textContent=t.footer[i]; });
+    localStorage.setItem(KEY, lang);
+  }
+  const saved=localStorage.getItem(KEY) || "en";
+  applyLanguage(saved);
+  const toggle=document.getElementById("langToggle");
+  if(toggle){
+    toggle.addEventListener("click",()=>{
+      const current=localStorage.getItem(KEY) || "en";
+      applyLanguage(current === "en" ? "th" : "en");
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
-
-<style>
-.nav-logo{width:154px!important;height:auto!important;display:block!important;opacity:.96!important;filter:drop-shadow(0 8px 22px rgba(0,0,0,.26))!important;}
-@media(max-width:760px){.nav-logo{width:132px!important;}}
-</style>

@@ -229,6 +229,45 @@ h2 em{color:var(--gold);font-style:italic}
   .two,.principle-grid,.grid{grid-template-columns:1fr;gap:1.5rem}
   .panel,.card,.step-card,.withheld-box{padding:1.45rem}
 }
+
+/* LANGUAGE TOGGLE */
+.lang-toggle{
+  border:1px solid rgba(109,178,133,.46);
+  color:var(--cream);
+  background:rgba(12,30,17,.42);
+  font-family:'Lora','Noto Serif Thai',Georgia,serif;
+  font-size:.58rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  padding:.34rem .62rem;
+  cursor:pointer;
+  transition:.25s;
+}
+.lang-toggle:hover{
+  transform:translateY(-1px);
+  border-color:var(--green-l);
+  background:rgba(109,178,133,.12);
+}
+body.lang-th{
+  font-family:'Noto Serif Thai','Lora',Georgia,serif;
+}
+body.lang-th h1,
+body.lang-th h2,
+body.lang-th h3,
+body.lang-th .quote{
+  font-family:'Cormorant Garamond','Noto Serif Thai',serif;
+}
+body.lang-th .body,
+body.lang-th .lede,
+body.lang-th .thai-note,
+body.lang-th .problem-item,
+body.lang-th .card p,
+body.lang-th .step-card p,
+body.lang-th .care-platform p,
+body.lang-th .final p{
+  line-height:2.05;
+}
+
 </style>
 </head>
 <body>
@@ -240,6 +279,7 @@ h2 em{color:var(--gold);font-style:italic}
       <a href="niamhom-history.html">Niamhom</a>
       <a class="active" href="imae-os.html">Imae OS</a>
       <a href="index.html#contact">Contact</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">ไทย</button>
     </div>
   </div>
 </nav>
@@ -423,6 +463,219 @@ h2 em{color:var(--gold);font-style:italic}
     <a class="cta" href="index.html#contact">Contact for Partnership</a>
   </div>
 </section>
+
+
+<script>
+(function(){
+  const content = {
+    en: {
+      title: "Imae OS — Rebuilding the Safe Space",
+      button: "ไทย",
+      nav: ["Story", "Niamhom", "Imae OS", "Contact"],
+      heroKicker: "Care Value Platform",
+      heroTitle: "Imae OS<br><em>Rebuilding the Safe Space</em>",
+      heroLede: "The world we inherited rewards accumulation: more money, more status, more ownership, more control. Over time, this logic turns life into competition — and the Safe Space that should exist within families, homes, and communities begins to disappear.",
+      status: "Public Overview · IP-Sensitive Details Withheld",
+
+      problemEye: "The Problem",
+      problemTitle: "A system built for <em>accumulation</em>",
+      problemBody: "Most modern systems teach people to survive by collecting and protecting: assets, credentials, attention, influence, and security. Accumulation becomes a proof of worth. When value is measured only by what one owns, people are pushed into comparison, anxiety, and competition.",
+      problemNote: "The old system teaches people that “the more you accumulate, the safer you become.” But when everyone must compete to accumulate, the safe space once held by home, family, and community slowly disappears.",
+      quote: "When everyone must fight to feel secure, care becomes the first thing society forgets.",
+      problems: [
+        ["Invisible care","Family care, emotional labor, and community support are treated as private duties, not as social value."],
+        ["Competition as survival","People are trained to compete for recognition and security instead of contributing from a place of trust."],
+        ["Hoarding of value","Value becomes something to hold, protect, and stack — rather than something that circulates and nourishes."],
+        ["Loss of roots","Local wisdom, family bonds, and ancestral care are pushed aside by the pressure to chase external success."],
+        ["Safe Space disappears","A person may remember warmth for a moment, but the surrounding system keeps pulling them back into fear."]
+      ],
+
+      whyEye: "Why Imae OS",
+      whyTitle: "Products can wake the memory.<br><em>A system must protect it.</em>",
+      whyBody: "Imae products can open a door back to memory — through scent, texture, touch, and the feeling of being cared for. But if the outside world still operates through accumulation and competition, that Safe Space becomes temporary. Imae OS exists to carry the Spirit of Imae beyond a product moment and into a social structure.",
+      platformTitle: "From Accumulation to Circulation",
+      platformBody: "Imae OS is a Care Value Platform: a public-facing concept for recognizing care, translating contribution into fair value, and returning that value back to people, families, and communities. Its purpose is not to make people compete harder, but to make giving feel safe, visible, and sustainable.",
+      steps: [
+        ["01 · Recognize","Care becomes visible","The platform begins by acknowledging forms of contribution that are often unseen: caring for family, helping vulnerable people, preserving local wisdom, and strengthening community life."],
+        ["02 · Translate","Care becomes value","Contribution is framed as value, not as sacrifice. The public page does not disclose how value is measured, verified, or processed."],
+        ["03 · Return","Value flows back","The value created by contribution should not disappear into extraction. It should flow back toward the people and communities that sustain life."]
+      ],
+
+      howEye: "How it addresses the problem",
+      howTitle: "Engineering the conditions for <em>Safe Space</em>",
+      howBody: "Imae OS does not present Safe Space as a mood, a campaign, or a temporary brand experience. It treats Safe Space as a social condition: people need to feel that contribution will not make them weaker, poorer, or forgotten.",
+      cards: [
+        ["Security through contribution","Instead of asking people to accumulate alone, Imae OS reframes contribution as a path toward shared security."],
+        ["Flow over hoarding","The system is designed around circulation: value should move, return, and keep relationships alive."],
+        ["Belonging over isolation","Family, community, and local roots are not nostalgic decoration; they are infrastructure for human resilience."],
+        ["Care as infrastructure","Care is treated as something society can recognize and support, not merely something individuals silently absorb."]
+      ],
+
+      protectEye: "Protected by design",
+      protectTitle: "This public page intentionally keeps the system <em>IP-safe</em>",
+      protectBody: "This page explains the origin, problem, and principle of Imae OS, but does not disclose proprietary technical or operational details. Deeper materials are reserved for protected discussions with appropriate confidentiality controls.",
+      redacted: ["System architecture","Valuation logic","Verification workflow","Credit mechanics","Data structures","Partner operations","Implementation protocols","Model logic"],
+
+      finalEye: "Final Vision",
+      finalTitle: "Technology must serve humanity by making giving safe again.",
+      finalBody: "Imae OS exists because the Safe Space awakened by Imae should not end at the product. It should become a living social condition — where care is seen, contribution is valued, and no one has to fight alone to prove their worth.",
+      cta: "Contact for Partnership"
+    },
+
+    th: {
+      title: "Imae OS — ระบบฟื้นคืนพื้นที่ปลอดภัย",
+      button: "EN",
+      nav: ["เรื่องราว", "ใบเนียมหอม", "Imae OS", "ติดต่อ"],
+      heroKicker: "แพลตฟอร์มคุณค่าแห่งการดูแล",
+      heroTitle: "Imae OS<br><em>ระบบฟื้นคืนพื้นที่ปลอดภัย</em>",
+      heroLede: "โลกที่เราคุ้นเคยให้รางวัลกับการสะสม — เงินมากขึ้น สถานะมากขึ้น การครอบครองมากขึ้น และการควบคุมมากขึ้น เมื่อเวลาผ่านไป ตรรกะนี้ทำให้ชีวิตกลายเป็นการแข่งขัน และทำให้พื้นที่ปลอดภัยที่ควรมีในบ้าน ครอบครัว และชุมชน ค่อย ๆ หายไป",
+      status: "ภาพรวมสาธารณะ · สงวนรายละเอียดที่เกี่ยวข้องกับ IP",
+
+      problemEye: "ปัญหาหลัก",
+      problemTitle: "ระบบที่ถูกสร้างบนตรรกะของ <em>การสะสม</em>",
+      problemBody: "ระบบสมัยใหม่จำนวนมากสอนให้คนเอาตัวรอดด้วยการสะสมและปกป้องสิ่งที่ตนมี ไม่ว่าจะเป็นทรัพย์สิน วุฒิการศึกษา ความสนใจ อิทธิพล หรือความมั่นคง การสะสมจึงกลายเป็นเครื่องพิสูจน์คุณค่าของคน และเมื่อคุณค่าถูกวัดจากสิ่งที่ครอบครอง คนจึงถูกผลักเข้าสู่การเปรียบเทียบ ความกังวล และการแข่งขัน",
+      problemNote: "ระบบเดิมทำให้คนเชื่อว่า “ยิ่งสะสมมาก ยิ่งมั่นคง” แต่เมื่อทุกคนต้องแข่งกันสะสม พื้นที่ปลอดภัยที่เคยมีในบ้าน ครอบครัว และชุมชน จึงค่อย ๆ หายไป",
+      quote: "เมื่อทุกคนต้องต่อสู้เพื่อให้รู้สึกปลอดภัย สิ่งแรกที่สังคมลืมไปคือการดูแลกัน",
+      problems: [
+        ["การดูแลที่มองไม่เห็น","การดูแลครอบครัว แรงงานทางใจ และการช่วยเหลือชุมชน มักถูกมองเป็นหน้าที่ส่วนตัว ไม่ใช่คุณค่าทางสังคม"],
+        ["การแข่งขันกลายเป็นการเอาตัวรอด","ผู้คนถูกฝึกให้แข่งขันเพื่อการยอมรับและความมั่นคง แทนที่จะได้มีพื้นที่ให้เกื้อกูลกันจากความไว้วางใจ"],
+        ["การกักเก็บคุณค่า","คุณค่าถูกทำให้เป็นสิ่งที่ต้องถือไว้ ป้องกันไว้ และสะสมไว้ แทนที่จะไหลเวียนเพื่อหล่อเลี้ยงผู้คน"],
+        ["การหลุดจากรากเดิม","ภูมิปัญญาท้องถิ่น สายใยครอบครัว และความทรงจำจากบรรพบุรุษ ถูกเบียดออกไปด้วยแรงกดดันให้ไล่ตามความสำเร็จภายนอก"],
+        ["Safe Space ค่อย ๆ หายไป","คนอาจจำความอบอุ่นได้เพียงชั่วขณะ แต่ระบบรอบตัวกลับดึงเขากลับเข้าสู่ความกลัวและการดิ้นรนอีกครั้ง"]
+      ],
+
+      whyEye: "ทำไมต้องมี Imae OS",
+      whyTitle: "สินค้าอาจปลุกความทรงจำได้<br><em>แต่ระบบต้องช่วยปกป้องมัน</em>",
+      whyBody: "ผลิตภัณฑ์ของ Imae สามารถเปิดประตูกลับไปสู่ความทรงจำ ผ่านกลิ่น ผิวสัมผัส การแตะต้อง และความรู้สึกของการได้รับการดูแล แต่ถ้าโลกภายนอกยังทำงานด้วยตรรกะของการสะสมและการแข่งขัน พื้นที่ปลอดภัยนั้นจะเกิดขึ้นเพียงชั่วคราว Imae OS จึงถูกออกแบบเพื่อพา Spirit of Imae ออกจากช่วงเวลาของสินค้า ไปสู่โครงสร้างทางสังคม",
+      platformTitle: "จากการสะสม สู่การไหลเวียน",
+      platformBody: "Imae OS คือ Care Value Platform หรือแพลตฟอร์มคุณค่าแห่งการดูแล ในระดับสาธารณะ แนวคิดนี้ทำหน้าที่มองเห็นการดูแล แปลการเกื้อกูลให้กลายเป็นคุณค่าที่เป็นธรรม และส่งคุณค่านั้นกลับคืนสู่ผู้คน ครอบครัว และชุมชน จุดประสงค์ไม่ใช่ทำให้คนแข่งขันกันหนักขึ้น แต่ทำให้การให้เป็นสิ่งที่ปลอดภัย มองเห็นได้ และยั่งยืน",
+      steps: [
+        ["01 · Recognize","ทำให้การดูแลถูกมองเห็น","ระบบเริ่มจากการยอมรับรูปแบบของการเกื้อกูลที่มักถูกมองข้าม เช่น การดูแลครอบครัว การช่วยเหลือผู้เปราะบาง การรักษาภูมิปัญญาท้องถิ่น และการประคองชีวิตชุมชน"],
+        ["02 · Translate","ทำให้การดูแลกลายเป็นคุณค่า","การเกื้อกูลถูกมองเป็นคุณค่า ไม่ใช่การเสียสละที่หายไปเฉย ๆ โดยหน้าเว็บสาธารณะนี้จะไม่เปิดเผยวิธีการวัด ตรวจสอบ หรือประมวลผลคุณค่า"],
+        ["03 · Return","ทำให้คุณค่าไหลกลับคืน","คุณค่าที่เกิดจากการเกื้อกูลไม่ควรถูกดูดออกไปจากผู้สร้างคุณค่านั้น แต่ควรไหลกลับไปสู่ผู้คนและชุมชนที่หล่อเลี้ยงชีวิต"]
+      ],
+
+      howEye: "ระบบนี้เข้าไปแก้โจทย์อย่างไร",
+      howTitle: "ออกแบบเงื่อนไขให้ <em>Safe Space</em> เกิดขึ้นได้จริง",
+      howBody: "Imae OS ไม่ได้มอง Safe Space เป็นเพียงอารมณ์ แคมเปญ หรือประสบการณ์แบรนด์ชั่วคราว แต่ปฏิบัติต่อ Safe Space ในฐานะเงื่อนไขทางสังคม เพราะผู้คนจำเป็นต้องรู้สึกว่า การเกื้อกูลจะไม่ทำให้ตนเองอ่อนแอลง ยากจนลง หรือถูกลืม",
+      cards: [
+        ["ความมั่นคงผ่านการเกื้อกูล","แทนที่จะให้แต่ละคนสะสมเพื่อตัวเอง Imae OS วางการเกื้อกูลเป็นเส้นทางหนึ่งของความมั่นคงร่วมกัน"],
+        ["การไหลเวียนแทนการกักเก็บ","ระบบยืนอยู่บนหลักการไหลเวียน คุณค่าควรเคลื่อนที่ กลับคืน และทำให้ความสัมพันธ์ยังมีชีวิต"],
+        ["ความเป็นส่วนหนึ่งแทนความโดดเดี่ยว","ครอบครัว ชุมชน และรากท้องถิ่นไม่ใช่เพียงความทรงจำสวยงาม แต่คือโครงสร้างพื้นฐานของความเข้มแข็งทางใจ"],
+        ["การดูแลในฐานะโครงสร้างพื้นฐาน","การดูแลควรถูกสังคมมองเห็นและสนับสนุน ไม่ใช่เป็นภาระที่แต่ละคนต้องแบกรับเงียบ ๆ"]
+      ],
+
+      protectEye: "ปกป้องโดยการออกแบบ",
+      protectTitle: "หน้าเว็บสาธารณะนี้ตั้งใจรักษาความปลอดภัยต่อ <em>IP</em>",
+      protectBody: "หน้านี้อธิบายที่มา ปัญหา และหลักการของ Imae OS เท่านั้น โดยไม่เปิดเผยรายละเอียดเชิงเทคนิคหรือกระบวนการดำเนินงานที่เป็นกรรมสิทธิ์ เนื้อหาเชิงลึกจะสงวนไว้สำหรับการพูดคุยที่มีมาตรการรักษาความลับที่เหมาะสม",
+      redacted: ["สถาปัตยกรรมระบบ","ตรรกะการประเมินคุณค่า","กระบวนการตรวจสอบ","กลไกเครดิต","โครงสร้างข้อมูล","การทำงานกับพาร์ทเนอร์","โปรโตคอลการใช้งาน","ตรรกะของโมเดล"],
+
+      finalEye: "วิสัยทัศน์สุดท้าย",
+      finalTitle: "เทคโนโลยีควรรับใช้มนุษย์ ด้วยการทำให้การให้ปลอดภัยอีกครั้ง",
+      finalBody: "Imae OS เกิดขึ้นเพราะ Safe Space ที่ Imae ปลุกขึ้นมา ไม่ควรจบลงแค่ในช่วงเวลาของการใช้ผลิตภัณฑ์ แต่มันควรกลายเป็นเงื่อนไขทางสังคมที่มีชีวิต — ที่การดูแลถูกมองเห็น การเกื้อกูลมีคุณค่า และไม่มีใครต้องต่อสู้ลำพังเพื่อพิสูจน์ว่าตนมีค่า",
+      cta: "ติดต่อเพื่อความร่วมมือ"
+    }
+  };
+
+  const setHTML = (selector, value) => {
+    const el = document.querySelector(selector);
+    if (el) el.innerHTML = value;
+  };
+  const setList = (selector, values, render) => {
+    document.querySelectorAll(selector).forEach((el, i) => {
+      if (values[i]) el.innerHTML = render(values[i]);
+    });
+  };
+
+  function applyLanguage(lang){
+    const t = content[lang] || content.en;
+    document.documentElement.lang = lang === "th" ? "th" : "en";
+    document.body.classList.toggle("lang-th", lang === "th");
+    document.title = t.title;
+
+    const navLinks = document.querySelectorAll(".nav-links a");
+    t.nav.forEach((label, i) => { if(navLinks[i]) navLinks[i].textContent = label; });
+    const btn = document.getElementById("langToggle");
+    if(btn) btn.textContent = t.button;
+
+    setHTML(".hero .kicker", t.heroKicker);
+    setHTML(".hero h1", t.heroTitle);
+    setHTML(".hero .lede", t.heroLede);
+    setHTML(".hero .status", t.status);
+
+    const sections = document.querySelectorAll(".section");
+    if(sections[0]){
+      sections[0].querySelector(".eyebrow").innerHTML = t.problemEye;
+      sections[0].querySelector("h2").innerHTML = t.problemTitle;
+      sections[0].querySelector(".body").innerHTML = t.problemBody;
+      sections[0].querySelector(".thai-note").innerHTML = t.problemNote;
+      sections[0].querySelector(".quote").innerHTML = t.quote;
+      sections[0].querySelectorAll(".problem-item").forEach((el,i)=>{
+        if(t.problems[i]) el.innerHTML = `<span>${t.problems[i][0]}</span>${t.problems[i][1]}`;
+      });
+    }
+
+    const principle = document.querySelector(".principle");
+    if(principle){
+      principle.querySelector(".eyebrow").innerHTML = t.whyEye;
+      principle.querySelector("h2").innerHTML = t.whyTitle;
+      principle.querySelector(".body").innerHTML = t.whyBody;
+      principle.querySelector(".care-platform h3").innerHTML = t.platformTitle;
+      principle.querySelector(".care-platform p").innerHTML = t.platformBody;
+      principle.querySelectorAll(".step-card").forEach((el,i)=>{
+        if(t.steps[i]) {
+          el.querySelector(".step-no").innerHTML = t.steps[i][0];
+          el.querySelector("h3").innerHTML = t.steps[i][1];
+          el.querySelector("p").innerHTML = t.steps[i][2];
+        }
+      });
+    }
+
+    if(sections[2]){
+      sections[2].querySelector(".eyebrow").innerHTML = t.howEye;
+      sections[2].querySelector("h2").innerHTML = t.howTitle;
+      sections[2].querySelector(".body").innerHTML = t.howBody;
+      sections[2].querySelectorAll(".card").forEach((el,i)=>{
+        if(t.cards[i]) {
+          el.querySelector("h3").innerHTML = t.cards[i][0];
+          el.querySelector("p").innerHTML = t.cards[i][1];
+        }
+      });
+    }
+
+    const withheld = document.querySelector(".withheld");
+    if(withheld){
+      withheld.querySelector(".eyebrow").innerHTML = t.protectEye;
+      withheld.querySelector("h2").innerHTML = t.protectTitle;
+      withheld.querySelector(".body").innerHTML = t.protectBody;
+      withheld.querySelectorAll(".redacted-list span").forEach((el,i)=>{
+        if(t.redacted[i]) el.textContent = t.redacted[i];
+      });
+    }
+
+    const final = document.querySelector(".final");
+    if(final){
+      final.querySelector(".eyebrow").innerHTML = t.finalEye;
+      final.querySelector("h2").innerHTML = t.finalTitle;
+      final.querySelector("p").innerHTML = t.finalBody;
+      final.querySelector(".cta").innerHTML = t.cta;
+    }
+
+    localStorage.setItem("imaeSiteLang", lang);
+  }
+
+  const saved = localStorage.getItem("imaeSiteLang") || "en";
+  applyLanguage(saved);
+
+  const toggle = document.getElementById("langToggle");
+  if(toggle){
+    toggle.addEventListener("click", () => {
+      const current = localStorage.getItem("imaeSiteLang") || "en";
+      applyLanguage(current === "en" ? "th" : "en");
+    });
+  }
+})();
+</script>
 
 </body>
 </html>
